@@ -1,21 +1,32 @@
-'use strict';
+// 'use strict';
 
-var should = require('should'),
-    crunchbase = require('../../../crunchbase'),
-    request = require('supertest');
+// var should = require('should'),
+//     app = require('../../../server'),
+//     request = require('supertest');
 
-//crunchbase route for investors go here
-describe('GET /api/awesomeThings', function() {
+// describe('GET /crunchbase/people', function() {
 
-  it('should respond with JSON array', function(done) {
-    request(app)
-      .get('/api/awesomeThings')
-      .expect(200)
-      .expect('Content-Type', /json/)
-      .end(function(err, res) {
-        if (err) return done(err);
-        res.body.should.be.instanceof(Array);
-        done();
-      });
-  });
-});
+//   it('should respond with 200', function(done) {
+//     request(app)
+//       .get('/api/crunchbase/people')
+//       .expect(200)
+//       .expect('Content-Type', /json/)
+//       .end(function(err, res) {
+//         if (err) return done(err);
+//         //res.body.should.be.instanceof(Object);
+//         done();
+//       });
+//   });
+
+//   it('should respond with an object', function(done) {
+//     request(app)
+//       .get('/api/crunchbase/people')
+//       .expect(200)
+//       .expect('Content-Type', /json/)
+//       .end(function(err, res) {
+//         if (err) return done(err);
+//         res.body.should.be.instanceof(Object);
+//         done();
+//       });
+//   });
+// });
