@@ -2,6 +2,7 @@
   "name": "investorsearch",
   "version": "0.0.0",
   "dependencies": {
+    "bluebird": "^2.1.3",
     "body-parser": "~1.0.0",
     "compression": "~1.0.1",
     "connect-mongo": "~0.4.1",
@@ -16,8 +17,10 @@
     "morgan": "~1.0.0",
     "passport": "~0.2.0",
     "passport-local": "~0.1.6",
+    "q": "^1.0.1",
     "request": "^2.36.0",
-    "static-favicon": "~1.0.1"
+    "static-favicon": "~1.0.1",
+    "underscore": "^1.6.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
