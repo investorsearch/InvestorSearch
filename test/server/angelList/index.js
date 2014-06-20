@@ -7,6 +7,7 @@ var should = require('should'),
 describe('GET /angelList/getinvestors', function() {
   var sampleId = '6702';
   it('should respond with 200', function(done) {
+    this.timeout(10000);
     request(app)
       .get('/api/angellist/getinvestors/' + sampleId)
       .expect(200)
@@ -18,6 +19,7 @@ describe('GET /angelList/getinvestors', function() {
   });
 
   it('should respond with an object', function(done) {
+    this.timeout(10000);
     request(app)
       .get('/api/angellist/getinvestors/' + sampleId)
       .expect(200)

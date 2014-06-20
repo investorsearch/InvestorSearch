@@ -13,7 +13,8 @@ var express = require('express'),
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = require('./lib/config/config');
-var db = mongoose.connect(config.mongo.uri, config.mongo.options);
+// Commenting out the SQL DB since we aren't using it.
+// var db = mongoose.connect(config.mongo.uri, config.mongo.options);
 
 // Bootstrap models
 var modelsPath = path.join(__dirname, 'lib/models');
@@ -23,8 +24,8 @@ fs.readdirSync(modelsPath).forEach(function (file) {
   }
 });
 
-// Populate empty DB with sample data
-require('./lib/config/dummydata');
+// Populate empty DB with sample data - REMOVING THIS B/C NOT USING MONGO
+// require('./lib/config/dummydata');
 
 // Passport Configuration
 var passport = require('./lib/config/passport');
@@ -33,6 +34,8 @@ var passport = require('./lib/config/passport');
 var app = express();
 require('./lib/config/express')(app);
 require('./lib/routes')(app);
+
+
 
 // Start server
 app.listen(config.port, config.ip, function () {
