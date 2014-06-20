@@ -17,14 +17,19 @@ describe('GET /crunchbase/people', function() {
       });
   });
 
-  it('should respond with an object', function(done) {
+  it('should have "items" with a "name"', function(done) {
     request(app)
       .get('/api/crunchbase/people')
       .expect(200)
       .expect('Content-Type', /json/)
       .end(function(err, res) {
         if (err) return done(err);
-        res.body.should.be.instanceof(Object);
+        var parsedBody = JSON.parse(res.body);
+        parsedBody.data.should.be.instanceof(Object);
+        parsedBody.data.should.have.property("items");
+        parsedBody.data.items.should.be.instanceof(Array);
+        parsedBody.data.items[0].should.have.property("name");
+
         done();
       });
   });
