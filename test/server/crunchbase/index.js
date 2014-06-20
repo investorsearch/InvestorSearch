@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 var should = require('should'),
     app = require('../../../server'),
@@ -45,4 +45,5 @@ describe('GET /crunchbase/person', function() {
       });
   });
 });
+
 
