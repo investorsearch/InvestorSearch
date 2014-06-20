@@ -13,7 +13,6 @@ describe('GET /crunchbase/people', function() {
       .expect('Content-Type', /json/)
       .end(function(err, res) {
         if (err) return done(err);
-        //res.body.should.be.instanceof(Object);
         done();
       });
   });
