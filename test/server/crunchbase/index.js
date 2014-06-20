@@ -1,21 +1,21 @@
 'use strict';
 
 var should = require('should'),
-    crunchbase = require('../../../crunchbase'),
+    app = require('../../../server'),
     request = require('supertest');
 
-//crunchbase route for investors go here
-describe('GET /api/awesomeThings', function() {
+describe('GET /crunchbase/people', function() {
 
-  it('should respond with JSON array', function(done) {
+  it('should respond with an object', function(done) {
     request(app)
-      .get('/api/awesomeThings')
+      .get('/api/crunchbase/people')
       .expect(200)
       .expect('Content-Type', /json/)
       .end(function(err, res) {
         if (err) return done(err);
-        res.body.should.be.instanceof(Array);
+        //res.body.should.be.instanceof(Object);
         done();
       });
   });
 });
+
