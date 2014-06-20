@@ -23,6 +23,7 @@
     "passport-local": "~0.1.6",
     "q": "^1.0.1",
     "request": "^2.36.0",
+    "sinon": "^1.10.2",
     "static-favicon": "~1.0.1",
     "underscore": "^1.6.0"
   },
