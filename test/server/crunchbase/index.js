@@ -37,7 +37,7 @@ describe('GET /crunchbase/people', function() {
       });
   });
 
-  xit('if theres more than one page, hit the route for every page', function(done) {
+  xit('check to see if it has pages', function(done) {
     this.timeout(10000);
     request(app)
       .get('/api/crunchbase/people')
