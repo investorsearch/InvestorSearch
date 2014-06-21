@@ -94,6 +94,47 @@ describe('GET /crunchbase/person', function() {
   });
 });
 
+describe('GET /crunchbase/organization', function() {
+
+  xit('should respond with 200', function(done) {
+    request(app)
+      .get('/api/crunchbase/person')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end(function(err, res) {
+        if (err) return done(err);
+        done();
+      });
+  });
+
+
+  xit('should return an object', function(done) {
+    request(app)
+      .get('/api/crunchbase/person')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end(function(err, res) {
+        if (err) return done(err);
+        res.body.should.be.instanceof(Object);
+        done();
+      });
+  });
+
+  xit('should return an object with investments', function(done) {
+    var name = "Marc";
+    request(app)
+      .get('/api/crunchbase/person')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end(function(err, res) {
+        if (err) return done(err);
+        res.body.should.have.property("paging");
+        res.body.should.have.property("items");
+        done();
+      });
+  });
+});
+
 
 
 
