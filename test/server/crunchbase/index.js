@@ -75,13 +75,11 @@ describe('GET /crunchbase/person', function() {
       .end(function(err, res) {
         if (err) return done(err);
         res.body.should.be.instanceof(Object);
-        //res.body.should.have.property("name");
-
         done();
       });
   });
 
-  it('should return a "Person"', function(done) {
+  it('should return an object with investments', function(done) {
     var name = "Marc";
     request(app)
       .get('/api/crunchbase/person')
@@ -89,7 +87,8 @@ describe('GET /crunchbase/person', function() {
       .expect('Content-Type', /json/)
       .end(function(err, res) {
         if (err) return done(err);
-        res.body.properties.first_name.should.equal(name);
+        res.body.should.have.property("paging");
+        res.body.should.have.property("items");
         done();
       });
   });
