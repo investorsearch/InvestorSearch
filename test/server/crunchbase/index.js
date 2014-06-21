@@ -82,14 +82,14 @@ describe('GET /crunchbase/person', function() {
   });
 
   it('should return a "Person"', function(done) {
-    var name = "David Hutchings";
+    var name = "Marc";
     request(app)
       .get('/api/crunchbase/person')
       .expect(200)
       .expect('Content-Type', /json/)
       .end(function(err, res) {
         if (err) return done(err);
-        res.body.name.should.equal(name);
+        res.body.properties.first_name.should.equal(name);
         done();
       });
   });
