@@ -7,11 +7,11 @@ angular.module('investorSearchApp')
 
     $scope.register = function(form) {
       $scope.submitted = true;
-  
+
       if(form.$valid) {
         Auth.createUser({
           name: $scope.user.name,
-          email: $scope.user.email,
+          email: $scope.user.email.toLowerCase(),
           password: $scope.user.password
         })
         .then( function() {
@@ -20,7 +20,7 @@ angular.module('investorSearchApp')
         })
         .catch( function(err) {
           err = err.data;
-          $scope.errors = {};
+          $location.path('/signup');
 
           // Update validity of form fields that match the mongoose errors
           angular.forEach(err.errors, function(error, field) {
