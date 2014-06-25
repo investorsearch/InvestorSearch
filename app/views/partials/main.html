@@ -1,21 +1,31 @@
 <div ng-include="'partials/navbar'"></div>
 
-<div class="jumbotron">
-  <h1>'Allo, 'Allo <span ng-show="currentUser">{{ currentUser.name }}</span>!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+<div class="">
+    <p class="pull-left">Search For Investors:</p>
+  <p>
+    {{constraints}}
+  <form name="searchForm" class="form-group" role="form" ng-submit='search(searchForm)'>
+    <div ng-repeat='constraint in constraints' class='form-group'>
+      <input type="search" class="form-control" placeholder="Company or Market" ng-model='constraint.text'>
+       Market: <input type="radio" ng-model="constraint.type" value="market">
+       Company: <input type="radio" ng-model="constraint.type" value="company">
+      <button type='button' ng-click='addField()' class="btn btn-primary" ng-show="constraints.length === $index+1">Add Constraint</button>
+      <button type='button' ng-click='removeField($index)' class="btn btn-danger" ng-hide="constraints.length === 1">Remove</button>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</p>
 </div>
 
 <div class="row marketing">
+  Results:
+  {{results}}
   <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
+      <h4>Investors:</h4>
       <p>{{thing.info}}</p>
   </div>
 </div>
 
 <div class="footer">
-  <p>♥ from the Yeoman team</p>
+  <p>Brought to you by DreamIt and Fullstack Academy</p>
 </div>
