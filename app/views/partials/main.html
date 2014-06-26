@@ -3,26 +3,30 @@
 <div class="">
     <p class="pull-left">Search For Investors:</p>
   <p>
-    {{constraints}}
   <form name="searchForm" class="form-group" role="form" ng-submit='search(searchForm)'>
     <div ng-repeat='constraint in constraints' class='form-group'>
       <input type="search" class="form-control" placeholder="Company or Market" ng-model='constraint.text'>
        Market: <input type="radio" ng-model="constraint.type" value="market">
        Company: <input type="radio" ng-model="constraint.type" value="company">
-      <button type='button' ng-click='addField()' class="btn btn-primary" ng-show="constraints.length === $index+1">Add Constraint</button>
-      <button type='button' ng-click='removeField($index)' class="btn btn-danger" ng-hide="constraints.length === 1">Remove</button>
+      <button type='button' ng-click='addField()' class="btn btn-sm" ng-show="constraints.length === $index+1">Add Constraint</button>
+      <button type='button' ng-click='removeField($index)' class="btn btn-danger btn-sm" ng-hide="constraints.length === 1">Remove</button>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </p>
 </div>
 
-<div class="row marketing">
-  Results:
-  {{results}}
-  <div ng-repeat="thing in awesomeThings">
-      <h4>Investors:</h4>
-      <p>{{thing.info}}</p>
+<div class="row marketing container">
+  <div class="row investor-in-list" ng-repeat="investor in investors">
+    <div class="col-lg-1 pull-left">
+      <img ng-src="{{investor.image}}" />
+    </div>
+    <div class="col-lg-11">
+      <span class='lead'>{{investor.name}}</span></br>
+      <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
+      </span>
+
+    </div>
   </div>
 </div>
 

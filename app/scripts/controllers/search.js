@@ -10,11 +10,18 @@ angular.module('investorSearchApp')
     $scope.removeField = function(index) {
       $scope.constraints.splice(index, 1);
     };
-    $scope.search = function(){
-      // call search service here with constraints array
-      Search.getInvestors($scope.constraints).then(function(investorsFromPromise) {
-        $scope.results = investorsFromPromise.data;
-        console.log($scope.results);
-      });
+    // $scope.search = function(){
+    //   // call search service here with constraints array
+    //   Search.getInvestors($scope.constraints).then(function(investorsFromPromise) {
+    //     $scope.results = investorsFromPromise.data;
+    //     console.log($scope.results);
+    //   });
+    // }
+
+    $scope.search = function() {
+      $scope.investors = Search.fakeInvestors();
+      console.log($scope.investors[0].name);
     }
+
+
   });
