@@ -66,6 +66,18 @@ body {
 .marketing p + h4 {
     margin-top: 28px;
 }
+.form-control {
+  margin-bottom: 10px;
+}
+
+.investor-in-list{
+  padding: 5px;
+  margin: 0 0 10px 0;
+
+  img {
+    border:1px solid #000;
+  }
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
