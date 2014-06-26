@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('investorSearchApp')
-  .controller('SearchCtrl', function ($scope, Search) {
+  .controller('SearchCtrl', function ($scope, Search, Autocomplete) {
     $scope.constraints = [{text: ''}];
 
     $scope.addField = function() {
@@ -16,12 +16,26 @@ angular.module('investorSearchApp')
         $scope.investors = investorsFromPromise.data;
         console.log($scope.investors);
       });
+    };
+
+    $scope.completeCompanies = function(value) {
+      var returnedCompanyNames = [];
+      var allCompanies = []
+
+      Autocomplete.company(value).then(function(companies, headers){
+        console.log('done');
+        angular.forEach(companies.data, function(item){
+          returnedCompanyNames.push(item.name);
+          // console.log('about to flatten')
+          // allCompanies =  allCompanies.concat.apply(allCompanies, returnedCompanyNames);
+          //$scope.companies = allCompanies;
+        })
+        $scope.companies = returnedCompanyNames;
+        console.log($scope.companies);
+      })
+
     }
 
-    // $scope.search = function() {
-    //   $scope.investors = Search.fakeInvestors();
-    //   console.log($scope.investors[0].name);
-    // }
 
 
   });
