@@ -25,7 +25,7 @@ angular.module('investorSearchApp')
       Autocomplete.company(value).then(function(companies, headers){
         console.log('done');
         angular.forEach(companies.data, function(item){
-          returnedCompanyNames.push(item.name);
+          returnedCompanyNames.push({name: item.name, al_id: item.al_id});
           // console.log('about to flatten')
           // allCompanies =  allCompanies.concat.apply(allCompanies, returnedCompanyNames);
           //$scope.companies = allCompanies;
