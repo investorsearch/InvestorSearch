@@ -1,18 +1,18 @@
 <div ng-include="'partials/navbar'"></div>
 
 <div class="">
-    <p class="pull-left">Search For Investors:</p>
+    <p>Search For Investors:</p>
   <p>
   <form name="searchForm" class="form-group" role="form" ng-submit='search(searchForm)'>
     <div ng-repeat='constraint in constraints' class='form-group'>
-      {{selectedCompanies}}
-       <tags-input ng-model="selectedCompanies" display-property="name">
+      <p>
+       <tags-input ng-model="selectedCompanies" placeholder='Search for Companies'display-property="name">
           <auto-complete source="completeCompanies($query)"></auto-complete>
        </tags-input>
-       <tags-input ng-model="selectedMarkets" display-property="name">
+       <tags-input ng-model="selectedMarkets" placeholder='Search for Markets' display-property="name">
           <auto-complete source="completeMarkets($query)"></auto-complete>
        </tags-input>
-       {{selectedMarkets}}
+     </p>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
