@@ -1,22 +1,19 @@
 <div ng-include="'partials/navbar'"></div>
 
 <div class="">
-    <p class="pull-left">Search For Investors:</p>
+    <p>Search For Investors:</p>
   <p>
   <form name="searchForm" class="form-group" role="form" ng-submit='search(searchForm)'>
     <div ng-repeat='constraint in constraints' class='form-group'>
+      <p>
+       <tags-input ng-model="selectedCompanies" placeholder='Search for Companies'display-property="name">
+          <auto-complete source="completeCompanies($query)"></auto-complete>
+       </tags-input>
+       <tags-input ng-model="selectedMarkets" placeholder='Search for Markets' display-property="name">
+          <auto-complete source="completeMarkets($query)"></auto-complete>
+       </tags-input>
+     </p>
 
-      <input type="text" ng-model="asyncCompanies" placeholder="Companies loaded via $http" typeahead="companies for companies in completeCompanies($viewValue)" typeahead-loading="loading" typeahead-min-length="4" class="form-control">
-      <i ng-show="loading" class="glyphicon glyphicon-refresh"></i>
-      <input type="text" ng-model="asyncMarkets" placeholder="Markets loaded via $http" typeahead="markets for markets in completeMarkets($viewValue)" typeahead-loading="loadingC" typeahead-min-length="4" class="form-control">
-      <i ng-show="loadingM" class="glyphicon glyphicon-refresh"></i>
-
-     <!--  <input type="search" class="form-control" placeholder="Company or Market" ng-model='constraint.text'>
-       Market: <input type="radio" ng-model="constraint.type" value="market">
-       Company: <input type="radio" ng-model="constraint.type" value="company">
-      <button type='button' ng-click='addField()' class="btn btn-sm" ng-show="constraints.length === $index+1">Add Constraint</button>
-      <button type='button' ng-click='removeField($index)' class="btn btn-danger btn-sm" ng-hide="constraints.length === 1">Remove</button>
-    </div> -->
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </p>

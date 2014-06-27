@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('investorSearchApp')
-  .controller('SearchCtrl', function ($scope, Search, Autocomplete) {
+  .controller('SearchCtrl', function ($scope, $q, Search, Autocomplete) {
     $scope.constraints = [{text: ''}];
+    $scope.selectedCompanies = [];
+    $scope.selectedMarkets = [];
 
     // $scope.addField = function() {
     //   $scope.constraints.push({text: ''});
@@ -11,52 +13,37 @@ angular.module('investorSearchApp')
     //   $scope.constraints.splice(index, 1);
     // };
     $scope.search = function(){
-      var comps = [];
-      for(var i = 0; i < $scope.companies.length;i++){
-        comps.push($scope.companies[i].al_id);
-      }
+      console.log("companies in search");
+      console.log($scope.companies);
+      var constraints = {
+        companies: $scope.selectedCompanies,
+        markets: $scope.selectedMarkets
+      };
+
       // call search service here with constraints array
-      Search.getInvestors(comps).then(function(investorsFromPromise) {
+      Search.getInvestors(constraints).then(function(investorsFromPromise) {
         $scope.investors = investorsFromPromise.data;
         console.log($scope.investors);
       });
     };
 
     $scope.completeCompanies = function(value) {
+      var deferred = $q.defer();
       var returnedCompanyNames = [];
-      var allCompanies = [];
-
       Autocomplete.company(value).then(function(companies, headers){
-        console.log('done');
-        angular.forEach(companies.data, function(item){
-          returnedCompanyNames.push({name: item.name, al_id: item.al_id});
-          // console.log('about to flatten')
-          // allCompanies =  allCompanies.concat.apply(allCompanies, returnedCompanyNames);
-          //$scope.companies = allCompanies;
-        })
-        $scope.companies = returnedCompanyNames;
-        console.log($scope.companies);
+        deferred.resolve(companies);
       });
+      return deferred.promise;
     }
 
     $scope.completeMarkets = function(value) {
+     var deferred = $q.defer();
       var returnedMarketNames = [];
-      var allMarkets = [];
-
-      Autocomplete.market(value).then(function(markets, headers){
-        console.log('done');
-        angular.forEach(markets.data, function(item){
-          returnedMarketNames.push({name: item.name, al_id: item.al_id});
-          // console.log('about to flatten')
-          // allCompanies =  allCompanies.concat.apply(allCompanies, returnedCompanyNames);
-          //$scope.companies = allCompanies;
-        })
-        $scope.markets = returnedMarketNames;
-        console.log($scope.markets);
-      })
+      Autocomplete.company(value).then(function(markets, headers){
+        deferred.resolve(markets);
+      });
+      return deferred.promise;
 
     }
-
-
 
   });
