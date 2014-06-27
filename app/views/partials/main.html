@@ -11,13 +11,12 @@
       <input type="text" ng-model="asyncMarkets" placeholder="Markets loaded via $http" typeahead="markets for markets in completeMarkets($viewValue)" typeahead-loading="loadingC" typeahead-min-length="4" class="form-control">
       <i ng-show="loadingM" class="glyphicon glyphicon-refresh"></i>
 
-
-      <input type="search" class="form-control" placeholder="Company or Market" ng-model='constraint.text'>
+     <!--  <input type="search" class="form-control" placeholder="Company or Market" ng-model='constraint.text'>
        Market: <input type="radio" ng-model="constraint.type" value="market">
        Company: <input type="radio" ng-model="constraint.type" value="company">
       <button type='button' ng-click='addField()' class="btn btn-sm" ng-show="constraints.length === $index+1">Add Constraint</button>
       <button type='button' ng-click='removeField($index)' class="btn btn-danger btn-sm" ng-hide="constraints.length === 1">Remove</button>
-    </div>
+    </div> -->
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </p>

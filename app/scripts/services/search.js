@@ -6,6 +6,8 @@ angular.module('investorSearchApp')
     var Search = {
       // hit route that queries MySQL here:
       getInvestors: function(constraints){
+        console.log("constraints")
+        console.log(constraints)
         var getInvestorsPromise = $http.post('/api/search', constraints).success(function(investors, status) {
           return investors;
         });

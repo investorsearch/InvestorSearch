@@ -4,15 +4,19 @@ angular.module('investorSearchApp')
   .controller('SearchCtrl', function ($scope, Search, Autocomplete) {
     $scope.constraints = [{text: ''}];
 
-    $scope.addField = function() {
-      $scope.constraints.push({text: ''});
-    };
-    $scope.removeField = function(index) {
-      $scope.constraints.splice(index, 1);
-    };
+    // $scope.addField = function() {
+    //   $scope.constraints.push({text: ''});
+    // };
+    // $scope.removeField = function(index) {
+    //   $scope.constraints.splice(index, 1);
+    // };
     $scope.search = function(){
+      var comps = [];
+      for(var i = 0; i < $scope.companies.length;i++){
+        comps.push($scope.companies[i].al_id);
+      }
       // call search service here with constraints array
-      Search.getInvestors($scope.constraints).then(function(investorsFromPromise) {
+      Search.getInvestors(comps).then(function(investorsFromPromise) {
         $scope.investors = investorsFromPromise.data;
         console.log($scope.investors);
       });
