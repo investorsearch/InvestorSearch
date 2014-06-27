@@ -20,7 +20,7 @@ angular.module('investorSearchApp')
 
     $scope.completeCompanies = function(value) {
       var returnedCompanyNames = [];
-      var allCompanies = []
+      var allCompanies = [];
 
       Autocomplete.company(value).then(function(companies, headers){
         console.log('done');
@@ -32,6 +32,23 @@ angular.module('investorSearchApp')
         })
         $scope.companies = returnedCompanyNames;
         console.log($scope.companies);
+      });
+    }
+
+    $scope.completeMarkets = function(value) {
+      var returnedMarketNames = [];
+      var allMarkets = [];
+
+      Autocomplete.market(value).then(function(markets, headers){
+        console.log('done');
+        angular.forEach(markets.data, function(item){
+          returnedMarketNames.push({name: item.name, al_id: item.al_id});
+          // console.log('about to flatten')
+          // allCompanies =  allCompanies.concat.apply(allCompanies, returnedCompanyNames);
+          //$scope.companies = allCompanies;
+        })
+        $scope.markets = returnedMarketNames;
+        console.log($scope.markets);
       })
 
     }

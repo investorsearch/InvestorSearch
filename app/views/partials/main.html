@@ -8,6 +8,8 @@
 
       <input type="text" ng-model="asyncCompanies" placeholder="Companies loaded via $http" typeahead="companies for companies in completeCompanies($viewValue)" typeahead-loading="loading" typeahead-min-length="4" class="form-control">
       <i ng-show="loading" class="glyphicon glyphicon-refresh"></i>
+      <input type="text" ng-model="asyncMarkets" placeholder="Markets loaded via $http" typeahead="markets for markets in completeMarkets($viewValue)" typeahead-loading="loadingC" typeahead-min-length="4" class="form-control">
+      <i ng-show="loadingM" class="glyphicon glyphicon-refresh"></i>
 
 
       <input type="search" class="form-control" placeholder="Company or Market" ng-model='constraint.text'>
