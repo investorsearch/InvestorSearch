@@ -18,20 +18,19 @@
   </form>
 </p>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="investor-in-list" ng-repeat="investor in investors">
-      <div class="image">
-        <img ng-src="{{investor.image}}" />
-      </div>
-      <div class="information">
-        <span class='lead'>{{investor.name}}</span>
-        {{investor.location}}</br>
-        {{investor.bio}}</br>
-        {{investor.type}}</br>
-        <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
-        </span>
-      </div>
+
+<div class="row marketing container">
+  <div class="row investor-in-list" ng-repeat="investor in investors">
+    <div class="col-lg-1 pull-left">
+      <img ng-src="{{investor.image}}" />
+    </div>
+    <div class="col-lg-11">
+      <span class='lead'>{{investor.name}}</span></br>
+      <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
+      </span>
+      <br />
+      <span>{{investor.reason}}</span>
+
     </div>
   </div>
 </div>
