@@ -20,7 +20,7 @@
 </div>
 
 <div class="row marketing container">
-  <div class="row investor-in-list" ng-repeat="investor in investors">
+  <div class="row investor-in-list" ng-repeat="investor in investors|orderBy:'-score'">
     <div class="col-lg-1 pull-left">
       <img ng-src="{{investor.image}}" />
     </div>
@@ -29,7 +29,11 @@
       <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
       </span>
       <br />
-      <span>{{investor.reason}}</span>
+      <span>Reason: {{investor.reason}}</span>
+      <br />
+      <span>Score: {{investor.score}}</span>
+      <br />
+      <span>AngelList Id: {{investor.al_id}}</span>
 
     </div>
   </div>
