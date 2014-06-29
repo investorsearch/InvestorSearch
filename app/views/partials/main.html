@@ -28,6 +28,8 @@
       <span class='lead'>{{investor.name}}</span></br>
       <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
       </span>
+      <br />
+      <span>{{investor.reason}}</span>
 
     </div>
   </div>
