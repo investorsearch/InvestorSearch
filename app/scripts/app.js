@@ -7,7 +7,8 @@ angular.module('investorSearchApp', [
   'ngRoute',
   'ui.bootstrap',
   'ngTagsInput',
-  'angularSpinner'
+  'angularSpinner',
+  'ngCsv'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

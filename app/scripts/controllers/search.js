@@ -83,4 +83,17 @@ angular.module('investorSearchApp')
       $scope.selectedMarkets = [];
     }
 
+    // $scope.convertToCsvFormat = function(investors){
+    //   console.log('before conversion');
+    //   console.log(investors);
+    //   var investorCsvConversion = [];
+    //   investorCsvConversion = investors.map(function(investor){
+    //     return {
+    //       name: investor.name
+    //     }
+    //   })
+    //   console.log('after converstion');
+    //   console.log(investorCsvConversion);
+    // }
+
   });
