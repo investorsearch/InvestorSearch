@@ -3,7 +3,8 @@
 var express = require('express'),
     path = require('path'),
     fs = require('fs'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    bodyParser = require('body-parser');
 
 /**
  * Main application file
@@ -35,12 +36,14 @@ var app = express();
 require('./lib/config/express')(app);
 require('./lib/routes')(app);
 
-
+//app.use(express.json({limit:'50mb'}));
 
 // Start server
 app.listen(config.port, config.ip, function () {
   console.log('Express server listening on %s:%d, in %s mode', config.ip, config.port, app.get('env'));
 });
+
+
 
 // Expose app
 exports = module.exports = app;

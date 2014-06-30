@@ -25,6 +25,11 @@
       <span us-spinner></span>
       <span>Hamster wheels are powering our engines. Please be patient.</span>
     </div>
+    <form name="saveForm" class="form-group" role="form"  ng-submit='createList(saveForm)'>
+      <button type="submit" class="btn btn-primary" ng-disabled="disabled">
+        Save List
+      </button>
+    </form>
     <div class="investor-in-list" ng-repeat="investor in investors|orderBy:'-score'">
       <div class="image">
         <img ng-src="{{investor.image}}" />
