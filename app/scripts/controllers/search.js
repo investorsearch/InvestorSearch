@@ -68,7 +68,7 @@ angular.module('investorSearchApp')
       console.log('creating list...');
       console.log($scope.investors);
 
-      List.create($scope.investors);
+      List.create($scope.investors, $scope.listName);
 
     }
 

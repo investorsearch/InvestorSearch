@@ -5,7 +5,7 @@ angular.module('investorSearchApp')
 
     var List = {
       // hit route that queries MySQL here:
-      create: function(investor){
+      create: function(investor, title){
         var filteredInvestors = [];
         for(var i = 0; i < investor.length; i++){
           console.log("hidden: " + investor[i].hidden)
@@ -13,7 +13,7 @@ angular.module('investorSearchApp')
         }
         var info = {
           investors: filteredInvestors,
-          tableName: "untitled"
+          tableName: title
         };
 
         console.log(info);
