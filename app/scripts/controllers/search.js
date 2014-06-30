@@ -5,8 +5,14 @@ angular.module('investorSearchApp')
     $scope.constraints = [{text: ''}];
     $scope.selectedCompanies = [];
     $scope.selectedMarkets = [];
-
     $scope.investors = [];
+
+    List.getAll().then(function(lists){
+      console.log("The frontend got all of the lists");
+      console.log(lists.data);
+      $scope.lists = lists.data;
+      console.log($scope.lists);
+    })
 
     // $scope.addField = function() {
     //   $scope.constraints.push({text: ''});
@@ -68,7 +74,7 @@ angular.module('investorSearchApp')
       console.log('creating list...');
       console.log($scope.investors);
 
-      List.create($scope.investors);
+      List.create($scope.investors, $scope.listName);
 
     }
 
@@ -83,17 +89,10 @@ angular.module('investorSearchApp')
       $scope.selectedMarkets = [];
     }
 
-    // $scope.convertToCsvFormat = function(investors){
-    //   console.log('before conversion');
-    //   console.log(investors);
-    //   var investorCsvConversion = [];
-    //   investorCsvConversion = investors.map(function(investor){
-    //     return {
-    //       name: investor.name
-    //     }
-    //   })
-    //   console.log('after converstion');
-    //   console.log(investorCsvConversion);
-    // }
+    $scope.showList = function(id){
+      List.show(id).then(function(investors){
+        $scope.investors = investors.data;
+      })
+    }
 
   });
