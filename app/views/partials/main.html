@@ -27,10 +27,11 @@
       <span>Hamster wheels are powering our engines. Please be patient.</span>
     </div>
     <form name="saveForm" class="form-group" role="form"  ng-submit='createList(saveForm)' ng-hide="investors.length < 1">
+      <input type="text" class="form-control" ng-model="listName" placeholder="Title">
       <button type="submit" class="btn btn-primary" ng-disabled="disabled">
         Save List
       </button>
-      <input type="text" class="form-control" ng-model="listName" placeholder="Title">
+
     </form>
     <div class="investor-in-list" ng-repeat="investor in investors| index | orderBy:'-score'"><div ng-hide="investor.hidden === 1">
       <div class="image">
