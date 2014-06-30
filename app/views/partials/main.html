@@ -18,13 +18,14 @@
   </form>
 </p>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="spinner ng-hide">
       <span us-spinner></span>
       <span>Hamster wheels are powering our engines. Please be patient.</span>
     </div>
-    <div class="investor-in-list" ng-repeat="investor in investors">
+    <div class="investor-in-list" ng-repeat="investor in investors|orderBy:'-score'">
       <div class="image">
         <img ng-src="{{investor.image}}" />
       </div>
@@ -33,8 +34,11 @@
         <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
         </span>
         <br />
-        <span>{{investor.reason}}</span>
+        <span>Reason: {{investor.search_reason}}</span><br />
+        <span>Score: {{investor.score}}</span><br />
+        <span>AngelList Id: {{investor.al_id || investor.id}}</span>
       </div>
+
     </div>
   </div>
 </div>
