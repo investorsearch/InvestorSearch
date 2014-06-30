@@ -15,6 +15,7 @@
      </p>
 
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" ng-click="clear()" class="btn btn-danger" ng-hide="investors.length < 1">Clear</button>
   </form>
 </p>
 </div>
@@ -26,11 +27,11 @@
       <span>Hamster wheels are powering our engines. Please be patient.</span>
     </div>
     <form name="saveForm" class="form-group" role="form"  ng-submit='createList(saveForm)'>
-      <button type="submit" class="btn btn-primary" ng-disabled="disabled">
+      <button type="submit" class="btn btn-primary" ng-disabled="disabled" ng-hide="investors.length < 1">
         Save List
       </button>
     </form>
-    <div class="investor-in-list" ng-repeat="investor in investors|orderBy:'-score'" ng-hide="investor.hidden === 1">
+    <div class="investor-in-list" ng-repeat="investor in investors| index | orderBy:'-score'"><div ng-hide="investor.hidden === 1">
       <div class="image">
         <img ng-src="{{investor.image}}" />
       </div>
@@ -42,7 +43,8 @@
         <span>Reason: {{investor.search_reason}}</span><br />
         <span>Score: {{investor.score}}</span><br />
         <span>AngelList Id: {{investor.al_id || investor.id}}</span>
-        <a href='#' ng-click='removeFromList($index)'>Hide this user</a>
+        <a href='#' ng-click='removeFromList(investor.index)'>Hide this user</a>
+      </div>
       </div>
 
     </div>
