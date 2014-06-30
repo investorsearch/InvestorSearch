@@ -72,4 +72,9 @@ angular.module('investorSearchApp')
 
     }
 
+    $scope.removeFromList = function(index){
+      console.log('hiding investor');
+      return $scope.investors[index].hidden = 1;
+    }
+
   });
