@@ -11,4 +11,8 @@ angular.module('investorSearchApp')
 
     }
 
+    $scope.getLists = function(){
+      List.getAll();
+    }
+
   });
