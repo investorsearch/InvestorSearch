@@ -6,7 +6,8 @@ angular.module('investorSearchApp', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap',
-  'ngTagsInput'
+  'ngTagsInput',
+  'angularSpinner'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

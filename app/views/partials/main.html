@@ -18,9 +18,12 @@
   </form>
 </p>
 </div>
-
 <div class="container">
   <div class="row">
+    <div class="spinner ng-hide">
+      <span us-spinner></span>
+      <span>Hamster wheels are powering our engines. Please be patient.</span>
+    </div>
     <div class="investor-in-list" ng-repeat="investor in investors">
       <div class="image">
         <img ng-src="{{investor.image}}" />
