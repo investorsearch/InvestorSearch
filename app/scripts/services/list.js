@@ -8,7 +8,7 @@ angular.module('investorSearchApp')
       create: function(investor){
         var filteredInvestors = [];
         for(var i = 0; i < investor.length; i++){
-          filteredInvestors.push({'id': investor[i].id, 'search_reason': investor[i].search_reason });
+          filteredInvestors.push({'id': investor[i].id, 'search_reason': investor[i].search_reason});
         }
         var info = {
           investors: filteredInvestors,
