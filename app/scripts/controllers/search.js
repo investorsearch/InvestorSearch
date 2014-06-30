@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('investorSearchApp')
-  .controller('SearchCtrl', function ($scope, $q, Search, Autocomplete) {
+  .controller('SearchCtrl', function ($scope, $q, Search, Autocomplete, List) {
     $scope.constraints = [{text: ''}];
     $scope.selectedCompanies = [];
     $scope.selectedMarkets = [];
@@ -62,6 +62,19 @@ angular.module('investorSearchApp')
       });
       return deferred.promise;
 
+    }
+
+    $scope.createList = function(){
+      console.log('creating list...');
+      console.log($scope.investors);
+
+      List.create($scope.investors);
+
+    }
+
+    $scope.removeFromList = function(index){
+      console.log('hiding investor');
+      return $scope.investors[index].hidden = 1;
     }
 
   });

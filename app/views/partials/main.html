@@ -25,7 +25,12 @@
       <span us-spinner></span>
       <span>Hamster wheels are powering our engines. Please be patient.</span>
     </div>
-    <div class="investor-in-list" ng-repeat="investor in investors|orderBy:'-score'">
+    <form name="saveForm" class="form-group" role="form"  ng-submit='createList(saveForm)'>
+      <button type="submit" class="btn btn-primary" ng-disabled="disabled">
+        Save List
+      </button>
+    </form>
+    <div class="investor-in-list" ng-repeat="investor in investors|orderBy:'-score'" ng-hide="investor.hidden === 1">
       <div class="image">
         <img ng-src="{{investor.image}}" />
       </div>
@@ -37,6 +42,7 @@
         <span>Reason: {{investor.search_reason}}</span><br />
         <span>Score: {{investor.score}}</span><br />
         <span>AngelList Id: {{investor.al_id || investor.id}}</span>
+        <a href='#' ng-click='removeFromList($index)'>Hide this user</a>
       </div>
 
     </div>
