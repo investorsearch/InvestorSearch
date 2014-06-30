@@ -12,7 +12,7 @@ angular.module('investorSearchApp')
         }
         var info = {
           investors: filteredInvestors,
-          user: $rootScope.currentUser
+          tableName: "untitled"
         };
 
         console.log(info);
