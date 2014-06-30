@@ -29,11 +29,12 @@
       <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
       </span>
       <br />
-      <span>Reason: {{investor.reason}}</span>
+      <span>Reason: {{investor.search_reason}}</span>
       <br />
       <span>Score: {{investor.score}}</span>
       <br />
-      <span>AngelList Id: {{investor.al_id}}</span>
+      <!-- When a company or market is being pulled in from the db, the AngelList ID is al_id, when it is being pulled down for the first time, it is id -->
+      <span>AngelList Id: {{investor.al_id || investor.id}}</span>
 
     </div>
   </div>
