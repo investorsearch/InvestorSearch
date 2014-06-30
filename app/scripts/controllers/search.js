@@ -77,4 +77,10 @@ angular.module('investorSearchApp')
       return $scope.investors[index].hidden = 1;
     }
 
+    $scope.clear = function(){
+      $scope.investors = [];
+      $scope.selectedCompanies = [];
+      $scope.selectedMarkets = [];
+    }
+
   });
