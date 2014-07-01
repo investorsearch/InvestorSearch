@@ -40,10 +40,15 @@ angular.module('investorSearchApp')
       },
       addInvestor: function(id){
         var addPromise = $http.get('/api/addInvestor/'+id).success(function(investor) {
-            console.log(investor);
             return investor;
           });
         return addPromise;
+      },
+      removeInvestor: function(id){
+        var removePromise = $http.get('/api/removeInvestor/'+id).success(function(investor) {
+            return investor;
+          });
+        return removePromise;
       }
     }
 

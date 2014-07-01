@@ -101,12 +101,18 @@ angular.module('investorSearchApp')
     };
 
     $scope.addInvestorToList = function(id){
-      console.log(id);
       List.addInvestor(id).then(function(investor){
         console.log("investor has been saved.");
         console.log(investor);
       });
     };
+
+    $scope.removeInvestorFromList = function(id){
+      List.removeInvestor(id).then(function(investor){
+        console.log("investor has been removed.");
+        console.log(investor);
+      });
+    }
 
     $scope.convertToCsvFormat = function(investors) {
       var exportableInvestors = investors.map(function(investor){

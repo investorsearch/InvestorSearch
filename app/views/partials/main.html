@@ -69,7 +69,7 @@ My saved investors:
         <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
         </span>
         <br />
-        <a href='#' ng-click='addInvestorToList(investor.id)'>Remove this user from my list</a>
+        <a href='#' ng-click='removeInvestorFromList(investor.id)'>Remove this user from my list</a>
       </div>
     </div>
 </div>
