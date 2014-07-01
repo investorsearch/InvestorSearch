@@ -108,4 +108,25 @@ angular.module('investorSearchApp')
       });
     };
 
+    $scope.convertToCsvFormat = function(investors) {
+      var exportableInvestors = investors.map(function(investor){
+        var investorType;
+        if (investor.type === "Startup") {
+          investorType = "Firm";
+        } else {
+            investorType = "Individual";
+          }
+
+        return {
+          name: investor.name,
+          type: investorType,
+          linkedIn: investor.linkedin_url,
+          location: investor.location,
+          about: investor.bio
+        };
+      });
+
+      return exportableInvestors;
+    }
+
   });
