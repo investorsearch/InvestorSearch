@@ -54,7 +54,7 @@ angular.module('investorSearchApp')
     $scope.completeCompanies = function(value) {
       var deferred = $q.defer();
       var returnedCompanyNames = [];
-      Autocomplete.company(value).then(function(companies, headers){
+      Autocomplete.company(value).then(function(companies){
         deferred.resolve(companies);
       });
       return deferred.promise;
@@ -63,7 +63,7 @@ angular.module('investorSearchApp')
     $scope.completeMarkets = function(value) {
      var deferred = $q.defer();
       var returnedMarketNames = [];
-      Autocomplete.market(value).then(function(markets, headers){
+      Autocomplete.market(value).then(function(markets){
         deferred.resolve(markets);
       });
       return deferred.promise;
