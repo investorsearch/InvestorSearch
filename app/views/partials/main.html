@@ -27,7 +27,7 @@
       <span us-spinner></span>
       <span>Hamster wheels are powering our engines. Please be patient.</span>
     </div>
-    <form name="saveForm" class="form-group" role="form"  ng-submit='createList(saveForm)' ng-hide="investors.length < 1">
+   <!--  <form name="saveForm" class="form-group" role="form"  ng-submit='createList(saveForm)' ng-hide="investors.length < 1">
       <input type="text" class="form-control" ng-model="listName" placeholder="Title">
       <button type="submit" class="btn btn-primary" ng-disabled="disabled">
         Save List
@@ -40,7 +40,7 @@
         </ul>
       </div>
 
-    </form>
+    </form> -->
     <div class="investor-in-list" ng-repeat="investor in investors| index"><div ng-hide="investor.hidden === 1">
       <div class="image">
         <img ng-src="{{investor.image}}" />
@@ -53,12 +53,25 @@
         <span>Reason: {{investor.search_reason}}</span><br />
         <span>Score: {{investor.score}}</span><br />
         <span>AngelList Id: {{investor.al_id || investor.id}}</span>
-        <a href='#' ng-click='removeFromList(investor.index)'>Hide this user</a>
+        <a href='#' ng-click='addInvestorToList(investor.id)'>Add this user to my list</a>
       </div>
-      </div>
-
     </div>
   </div>
+</div>
+<div>
+My saved investors:
+  <div class="investor-in-list" ng-repeat="investor in savedInvestors"><div ng-hide="investor.hidden === 1">
+      <div class="image">
+        <img ng-src="{{investor.image}}" />
+      </div>
+      <div class="information">
+        <span class='lead'>{{investor.name}}</span></br>
+        <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
+        </span>
+        <br />
+        <a href='#' ng-click='addInvestorToList(investor.id)'>Remove this user from my list</a>
+      </div>
+    </div>
 </div>
 
 <div class="footer">

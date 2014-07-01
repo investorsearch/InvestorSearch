@@ -7,12 +7,17 @@ angular.module('investorSearchApp')
     $scope.selectedMarkets = [];
     $scope.investors = [];
 
-    List.getAll().then(function(lists){
-      console.log("The frontend got all of the lists");
-      console.log(lists.data);
-      $scope.lists = lists.data;
-      console.log($scope.lists);
+    List.show().then(function(list){
+      console.log(list)
+      $scope.savedInvestors = list.data;
     })
+
+    // List.getAll().then(function(lists){
+    //   console.log("The frontend got all of the lists:");
+    //   console.log(lists.data);
+    //   $scope.lists = lists.data;
+    //   console.log($scope.lists);
+    // })
 
     // $scope.addField = function() {
     //   $scope.constraints.push({text: ''});
@@ -70,18 +75,18 @@ angular.module('investorSearchApp')
 
     }
 
-    $scope.createList = function(){
-      console.log('creating list...');
-      console.log($scope.investors);
+    // $scope.createList = function(){
+    //   console.log('creating list...');
+    //   console.log($scope.investors);
 
-      List.create($scope.investors, $scope.listName);
+    //   List.create($scope.investors, $scope.listName);
 
-    }
+    // }
 
-    $scope.removeFromList = function(index){
-      console.log('hiding investor');
-      return $scope.investors[index].hidden = 1;
-    }
+    // $scope.removeFromList = function(index){
+    //   console.log('hiding investor');
+    //   return $scope.investors[index].hidden = 1;
+    // }
 
     $scope.clear = function(){
       $scope.investors = [];
@@ -89,10 +94,18 @@ angular.module('investorSearchApp')
       $scope.selectedMarkets = [];
     }
 
-    $scope.showList = function(id){
-      List.show(id).then(function(investors){
+    $scope.showList = function(){
+      List.show().then(function(investors){
         $scope.investors = investors.data;
-      })
-    }
+      });
+    };
+
+    $scope.addInvestorToList = function(id){
+      console.log(id);
+      List.addInvestor(id).then(function(investor){
+        console.log("investor has been saved.");
+        console.log(investor);
+      });
+    };
 
   });
