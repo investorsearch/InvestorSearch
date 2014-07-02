@@ -1,34 +1,24 @@
 'use strict';
 
 angular.module('investorSearchApp')
-  .controller('SearchCtrl', function ($scope, $q, Search, Autocomplete, List) {
+  .controller('SearchCtrl', function ($scope, $q, $rootScope, Search, Autocomplete, List) {
     $scope.constraints = [{text: ''}];
     $scope.selectedCompanies = [];
     $scope.selectedMarkets = [];
     $scope.investors = [];
 
     List.show().then(function(list){
-      console.log(list);
       $scope.savedInvestors = list.data;
-    })
+    });
 
-    // List.getAll().then(function(lists){
-    //   console.log("The frontend got all of the lists:");
-    //   console.log(lists.data);
-    //   $scope.lists = lists.data;
-    //   console.log($scope.lists);
-    // })
+    $scope.scrollToAnchor = function(aid){
+      var aTag = $("a[name='"+ aid +"']");
+      console.log('scrolling')
+      console.log(aTag)
+      $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+    }
 
-    // $scope.addField = function() {
-    //   $scope.constraints.push({text: ''});
-    // };
-    // $scope.removeField = function(index) {
-    //   $scope.constraints.splice(index, 1);
-    // };
     $scope.search = function(){
-      //------------------------------- REAL SEARCH FUNCTION BELOW:
-      console.log("companies in search");
-      console.log($scope.companies);
       var constraints = {
         companies: $scope.selectedCompanies,
         markets: $scope.selectedMarkets
@@ -42,18 +32,8 @@ angular.module('investorSearchApp')
         $scope.investors = investorsFromPromise.data;
         // remove spinner
         $(".spinner").addClass('ng-hide');
-        console.log($scope.investors);
+        $scope.scrollToAnchor('results');
       });
-
-    //---------------------------- FAKE SEARCH FUNCTION BELOW TO TEST RANKING
-
-    // $scope.investors = [];
-    // for(var i = 0; i < fake_investors.length; i++){
-    //   if($scope.investors.indexOf(fake_investors[i]) === -1){
-    //     $scope.investors.push(fake_investors[i]);
-    //   } else if (fake_investors[i] === $scope.investors)
-    // }
-
     };
 
     $scope.completeCompanies = function(value) {
@@ -75,42 +55,35 @@ angular.module('investorSearchApp')
 
     }
 
-    // $scope.createList = function(){
-    //   console.log('creating list...');
-    //   console.log($scope.investors);
-
-    //   List.create($scope.investors, $scope.listName);
-
-    // }
-
-    // $scope.removeFromList = function(index){
-    //   console.log('hiding investor');
-    //   return $scope.investors[index].hidden = 1;
-    // }
-
     $scope.clear = function(){
       $scope.investors = [];
       $scope.selectedCompanies = [];
       $scope.selectedMarkets = [];
     }
 
-    $scope.showList = function(){
-      List.show().then(function(investors){
-        $scope.investors = investors.data;
-      });
-    };
+    // $scope.showList = function(){
+    //   List.show().then(function(investors){
+    //     $scope.investors = investors.data;
+    //   });
+    // };
 
     $scope.addInvestorToList = function(id){
       List.addInvestor(id).then(function(investor){
-        console.log("investor has been saved.");
-        console.log(investor);
-      });
+        for(var i = 0; i < $scope.investors.length; i++){
+          if($scope.investors[i].id === id){
+            $scope.investors.splice(i, 1);
+            $rootScope.highlight();
+          }
+        }
+      })
+      List.show().then(function(list){
+      $scope.savedInvestors = list.data;
+    });
+
     };
 
     $scope.removeInvestorFromList = function(id){
       List.removeInvestor(id).then(function(investor){
-        console.log("investor has been removed.");
-        console.log(investor);
       });
     };
 
@@ -160,5 +133,4 @@ angular.module('investorSearchApp')
 
      return returnedOutput;
   }
-
 });
