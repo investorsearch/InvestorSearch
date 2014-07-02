@@ -44,7 +44,6 @@
   <div class="row">
     <div class="spinner ng-hide">
       <span us-spinner></span>
-      <span>Hamster wheels are powering our engines. Please be patient.</span>
     </div>
    <!--  <form name="saveForm" class="form-group" role="form"  ng-submit='createList(saveForm)' ng-hide="investors.length < 1">
       <input type="text" class="form-control" ng-model="listName" placeholder="Title">
@@ -75,7 +74,7 @@
           <div class='row'>
             <a ng-show="investor.angellist_url" ng-href="{{investor.angellist_url}}" target="_blank"><button class='zocial angellist'>AngelList</button></a>
             <a ng-show="investor.linkedin_url" ng-href="{{investor.linkedin_url}}" target="_blank"><button class='zocial linkedin'>LinkedIn</button></a>
-            <button class='btn' ng-click='addInvestorToList(investor.id)'><span class="glyphicon glyphicon-plus"></span>Add this user to my list</button>
+            <button class='btn' ng-click='addInvestorToList(investor.id)'><span class="glyphicon glyphicon-plus"></span> Add this user to my list</button>
           </div>
         </div>
       </div>
@@ -83,19 +82,5 @@
     </div>
   </div>
 </div>
-<!-- <div>
-My saved investors:
-  <div class="investor-in-list" ng-repeat="investor in savedInvestors"><div ng-hide="investor.hidden === 1">
-      <div class="image">
-        <img ng-src="{{investor.image}}" />
-      </div>
-      <div class="information">
-        <span class='lead'>{{investor.name}}</span></br>
-        <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
-        </span>
-        <br />
-        <p class="deleteItem"><a ng-really-message="Are you sure you want to permanently delete this?" ng-really-click="removeInvestorFromList(investor.id)"><span class="glyphicon glyphicon-trash"></span></a><p>
-      </div>
-    </div>
-</div> -->
+
 

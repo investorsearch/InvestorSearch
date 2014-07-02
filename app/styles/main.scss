@@ -17,7 +17,7 @@ body {
   background-color: transparent;
   min-height:100%;
   color:white;
-  margin: 100px 0 60px 0;
+  margin: 60px 0 0 0;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -110,6 +110,11 @@ html{
 }
 
 .investor-in-list{
+  color:#999;
+  background-color:#FFF;
+  padding: 20px;
+  font-weight:300;
+  margin-bottom:50px;
   img {
     border:1px solid #000;
     // max-width: 100px;
@@ -138,13 +143,18 @@ html{
 
 .spinner{
   display:block;
-  height:600px;
+  height:400px;
 }
 
 .glyphicon{
-  color:white;
+  color: #FFF;
   cursor:pointer;
 }
+
+a{
+  cursor:pointer;
+}
+
 
 .highlight {
   background-color:green;
@@ -159,6 +169,7 @@ html{
   color:#999;
   background-color:#FFF;
   padding: 20px;
+  margin:50px 0;
   font-weight:300;
   // border: 1px solid #111;
   // border-radius: 25px;

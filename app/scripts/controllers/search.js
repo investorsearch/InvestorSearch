@@ -11,11 +11,22 @@ angular.module('investorSearchApp')
       $scope.savedInvestors = list.data;
     });
 
+    $scope.$watchCollection('investors', function(newer, older){
+    if (newer.length > 0){
+      $('.submitBtn').attr("disabled", "disabled");
+      console.log("disabled")
+    } else {
+      $('.submitBtn').removeAttr("disabled");
+      console.log("not disabled")
+    }
+
+
+  });
     $scope.scrollToAnchor = function(aid){
       var aTag = $("a[name='"+ aid +"']");
       console.log('scrolling')
       console.log(aTag)
-      $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+      $('html,body').animate({scrollTop: aTag.offset().top},1000);
     }
 
     $scope.search = function(){
@@ -26,6 +37,7 @@ angular.module('investorSearchApp')
 
       //show spinner
       $(".spinner").removeClass('ng-hide');
+      $('.submitBtn').attr("disabled", "disabled");
 
       // call search service here with constraints array
       Search.getInvestors(constraints).then(function(investorsFromPromise) {
