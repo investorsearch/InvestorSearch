@@ -19,10 +19,9 @@ angular.module('investorSearchApp')
     };
 
     $rootScope.highlight = function() {
-      console.log("turning red")
       $('.counter').addClass('highlight');
       setTimeout(function(){
         $('.counter').removeClass('highlight');
-      }, 300);
+      }, 500);
     }
   });

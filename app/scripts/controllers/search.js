@@ -11,6 +11,13 @@ angular.module('investorSearchApp')
       $scope.savedInvestors = list.data;
     });
 
+    $scope.scrollToAnchor = function(aid){
+      var aTag = $("a[name='"+ aid +"']");
+      console.log('scrolling')
+      console.log(aTag)
+      $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+    }
+
     $scope.search = function(){
       var constraints = {
         companies: $scope.selectedCompanies,
@@ -25,6 +32,7 @@ angular.module('investorSearchApp')
         $scope.investors = investorsFromPromise.data;
         // remove spinner
         $(".spinner").addClass('ng-hide');
+        $scope.scrollToAnchor('results');
       });
     };
 
@@ -125,5 +133,4 @@ angular.module('investorSearchApp')
 
      return returnedOutput;
   }
-
 });
