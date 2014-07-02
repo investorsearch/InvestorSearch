@@ -77,7 +77,7 @@ angular.module('investorSearchApp')
     $scope.removeInvestorFromList = function(id){
       List.removeInvestor(id).then(function(investor){
       });
-    }
+    };
 
     $scope.convertToCsvFormat = function(investors) {
       var exportableInvestors = investors.map(function(investor){
@@ -98,6 +98,32 @@ angular.module('investorSearchApp')
       });
 
       return exportableInvestors;
-    }
+    };
 
-  });
+    $scope.showSearchReasons = function(search_reasons){
+      var marketReasons = [];
+      var companyReasons = [];
+      var returnedOutput = '';
+
+      search_reasons.forEach(function(search_reason){
+        if(typeof search_reason.market !== 'undefined'){
+          marketReasons.push(search_reason.market);
+        } else if(typeof search_reason.company != 'undefined'){
+          companyReasons.push(search_reason.company);
+        }
+      });
+
+     if(marketReasons.length > 0){
+        var returnedMarketReasons = marketReasons.join(', ');
+        returnedOutput += 'Interested in ' + marketReasons.join(', ') + '. ';
+     }
+     if(companyReasons.length > 0){
+        var companyMarketReasons = companyReasons.join(', ');
+        // if(marketReasons.length > 0){returnedOutput += '\n\n'};
+        returnedOutput += 'Invested in ' + companyReasons.join(', ') + '.';
+     }
+
+     return returnedOutput;
+  }
+
+});

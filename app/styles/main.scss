@@ -105,8 +105,9 @@ html{
 .investor-in-list{
   img {
     border:1px solid #000;
-    max-width: 100px;
-    max-height:100px;
+    // max-width: 100px;
+    // max-height:100px;
+    margin-bottom:10px;
     width: auto;
     height: auto;
     display: inline-block;
@@ -120,9 +121,12 @@ html{
 }
 
 .information {
-  padding:10px 0 0 100px;
-  width:100%;
-  height:150px;
+  // padding:10px 0 0 100px;
+  // width:100%;
+  // height:150px;
+  h3{
+    margin-top:0px;
+  }
 }
 
 .spinner{
@@ -144,12 +148,27 @@ html{
   border-color:green;
 }
 
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+  .investor-image{
+    display:none;
+  }
 
-/* Responsive: Portrait tablets and up */
+  .investor-row{
+    margin-bottom:10px;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Responsive: Portrait tablets and up (small) */
 @media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
+  .container {
+      max-width: 730px;
+  }
 
     /* Remove the padding we set earlier */
     .header,
@@ -166,4 +185,10 @@ html{
     .jumbotron {
         border-bottom: 0;
     }
+
+    .investor-image{
+      display:inline-block;
+      margin-right:0px;
+    }
+
 }

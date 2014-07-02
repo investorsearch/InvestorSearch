@@ -35,7 +35,8 @@
 </div>
 
 <div class="container">
-  <button type="button" ng-csv="convertToCsvFormat(investors)" csv-header="['Name', 'Type', 'LinkedIn', 'Location', 'About']" filename="investors.csv">Export Investors to CSV</button>
+<!-- TODO: ADD THIS BUTTON TO THE SHOPPING CART -->
+<!--   <button type="button" ng-csv="convertToCsvFormat(investors)" csv-header="['Name', 'Type', 'LinkedIn', 'Location', 'About']" filename="investors.csv">Export Investors to CSV</button> -->
   <div class="row">
     <div class="spinner ng-hide">
       <span us-spinner></span>
@@ -56,19 +57,21 @@
 
     </form> -->
     <div class="investor-in-list" ng-repeat="investor in investors| index"><div ng-hide="investor.hidden === 1">
-      <div class="image">
-        <img ng-src="{{investor.image}}" />
+      <div class="row investor-row">
+        <div class="investor-image col-sm-3 col-md-3 col-lg-3 col-xl-3">
+          <img ng-src="{{investor.image}}" />
+        </div>
+        <div class="information col-xs-12 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+          <h3>{{investor.name}}</h3>
+          <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
+          </span>
+          <span>{{investor.bio}}</span><br />
+          <span>{{showSearchReasons(investor.search_reason)}}</span><br />
+<!--           <span>AngelList Id: {{investor.al_id || investor.id}}</span> -->
+          <a href='#' ng-click='addInvestorToList(investor.id)'>Add this user to my list</a>
+        </div>
       </div>
-      <div class="information">
-        <span class='lead'>{{investor.name}}</span></br>
-        <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
-        </span>
-        <br />
-        <span>Reason: {{investor.search_reason}}</span><br />
-        <span>Score: {{investor.score}}</span><br />
-        <span>AngelList Id: {{investor.al_id || investor.id}}</span>
-        <a href='#' ng-click='addInvestorToList(investor.id)'>Add this user to my list</a>
-      </div>
+
     </div>
   </div>
 </div>
