@@ -13,7 +13,17 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    min-height:100%;
+    background-color:transparent;
+    color:white;
 }
+
+html{
+    background:url('../images/cabs.jpg') no-repeat center center;
+    min-height:100%;
+    background-size:cover;
+}
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -96,6 +106,10 @@ body {
 .spinner{
   display:block;
   height:600px;
+}
+
+.homepage{
+  font-family: 'Lato', sans-serif;
 }
 
 
