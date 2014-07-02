@@ -1,0 +1,44 @@
+<div ng-include="'partials/navbar'"></div>
+
+
+<div>
+  <div class="searchArea">
+    <ol class="breadcrumb">
+      <li><a ng-click='goTo("/")'>Search</a></li>
+      <li class="active">My Investors</li>
+    </ol>
+    <hr>
+    <h3 class="title">Here's what you have saved.</h3>
+    <p class="pull-right">
+      <button class='btn btn-primary' type="button" ng-csv="convertToCsvFormat(savedInvestors)" csv-header="['Name', 'Type', 'LinkedIn', 'Location', 'About']" filename="investors.csv">Export Investors to CSV</button>
+      <form class="form-inline search" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" ng-model="querySearch.name" >
+          <button class="btn btn-default form-control" ng-click="querySearch = ''" ng-show='querySearch.name.length > 0'><span class="glyphicon glyphicon-remove"></span></button>
+        </div>
+
+
+      </form>
+    </p><div class='clear'></div>
+  </div>
+  <div class="investor-in-list" ng-repeat="investor in savedInvestors | filter: querySearch">
+    <div ng-hide="investor.hidden === 1">
+       <div class="row investor-row">
+        <div class="investor-image col-sm-3 col-md-3 col-lg-3 col-xl-3">
+          <img ng-src="{{investor.image}}" />
+        </div>
+        <div class="information col-xs-12 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+          <h3>{{investor.name}}</h3>
+          <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
+          </span>
+          <span>{{investor.bio}}</span><br /><br/>
+          <div class='row'>
+            <a ng-show="investor.angellist_url" ng-href="{{investor.angellist_url}}" target="_blank"><button class='zocial angellist'>AngelList</button></a>
+            <a ng-show="investor.linkedin_url" ng-href="{{investor.linkedin_url}}" target="_blank"><button class='zocial linkedin'>LinkedIn</button></a>
+            <button class="btn deleteItem"><a ng-really-message="Are you sure you want to permanently remove this from your list?" ng-really-click="removeInvestorFromList(investor.id)"><span class="glyphicon glyphicon-trash"></span> Remove from list</button></a><p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+

@@ -1,6 +1,7 @@
 <div class="header" ng-controller="NavbarCtrl">
+  <h3 class= "brand">InvestorSearch</h3>
   <ul class="nav nav-pills pull-right">
-    <li class="investorCount"><button class="counter btn btn-primary " ng-click="">My Investors: {{savedInvestors.length}}</button></li></li>
+    <li class="investorCount"><button class="counter btn btn-primary " ng-click="goTo('list')">My Investors: {{savedInvestors.length}}</button></li></li>
     <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
         <a ng-href="{{item.link}}">{{item.title}}</a>
     </li>
@@ -8,5 +9,4 @@
     <li ng-hide="currentUser" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
     <li ng-show="currentUser" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
   </ul>
-  <h3 class= "brand">Investor Search</h3>
 </div>
