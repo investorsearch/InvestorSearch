@@ -33,6 +33,7 @@ angular.module('investorSearchApp')
         // remove spinner
         $(".spinner").addClass('ng-hide');
         $scope.scrollToAnchor('results');
+        console.log($scope.investors);
       });
     };
 
