@@ -23,7 +23,7 @@ angular.module('investorSearchApp')
     });
 
     $(window).scrollStopped(function(){
-      $('.footer').show("fast");
+      $('.footer').slideDown("fast");
 
       if($(window).scrollTop() < 700){
         console.log("true");
