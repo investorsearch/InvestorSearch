@@ -7,12 +7,17 @@ angular.module('investorSearchApp')
     $scope.selectedMarkets = [];
     $scope.investors = [];
 
-    List.getAll().then(function(lists){
-      console.log("The frontend got all of the lists");
-      console.log(lists.data);
-      $scope.lists = lists.data;
-      console.log($scope.lists);
+    List.show().then(function(list){
+      console.log(list)
+      $scope.savedInvestors = list.data;
     })
+
+    // List.getAll().then(function(lists){
+    //   console.log("The frontend got all of the lists:");
+    //   console.log(lists.data);
+    //   $scope.lists = lists.data;
+    //   console.log($scope.lists);
+    // })
 
     // $scope.addField = function() {
     //   $scope.constraints.push({text: ''});
@@ -54,7 +59,7 @@ angular.module('investorSearchApp')
     $scope.completeCompanies = function(value) {
       var deferred = $q.defer();
       var returnedCompanyNames = [];
-      Autocomplete.company(value).then(function(companies, headers){
+      Autocomplete.company(value).then(function(companies){
         deferred.resolve(companies);
       });
       return deferred.promise;
@@ -63,25 +68,25 @@ angular.module('investorSearchApp')
     $scope.completeMarkets = function(value) {
      var deferred = $q.defer();
       var returnedMarketNames = [];
-      Autocomplete.market(value).then(function(markets, headers){
+      Autocomplete.market(value).then(function(markets){
         deferred.resolve(markets);
       });
       return deferred.promise;
 
     }
 
-    $scope.createList = function(){
-      console.log('creating list...');
-      console.log($scope.investors);
+    // $scope.createList = function(){
+    //   console.log('creating list...');
+    //   console.log($scope.investors);
 
-      List.create($scope.investors, $scope.listName);
+    //   List.create($scope.investors, $scope.listName);
 
-    }
+    // }
 
-    $scope.removeFromList = function(index){
-      console.log('hiding investor');
-      return $scope.investors[index].hidden = 1;
-    }
+    // $scope.removeFromList = function(index){
+    //   console.log('hiding investor');
+    //   return $scope.investors[index].hidden = 1;
+    // }
 
     $scope.clear = function(){
       $scope.investors = [];
@@ -89,10 +94,45 @@ angular.module('investorSearchApp')
       $scope.selectedMarkets = [];
     }
 
-    $scope.showList = function(id){
-      List.show(id).then(function(investors){
+    $scope.showList = function(){
+      List.show().then(function(investors){
         $scope.investors = investors.data;
-      })
+      });
+    };
+
+    $scope.addInvestorToList = function(id){
+      List.addInvestor(id).then(function(investor){
+        console.log("investor has been saved.");
+        console.log(investor);
+      });
+    };
+
+    $scope.removeInvestorFromList = function(id){
+      List.removeInvestor(id).then(function(investor){
+        console.log("investor has been removed.");
+        console.log(investor);
+      });
+    }
+
+    $scope.convertToCsvFormat = function(investors) {
+      var exportableInvestors = investors.map(function(investor){
+        var investorType;
+        if (investor.type === "Startup") {
+          investorType = "Firm";
+        } else {
+            investorType = "Individual";
+          }
+
+        return {
+          name: investor.name,
+          type: investorType,
+          linkedIn: investor.linkedin_url,
+          location: investor.location,
+          about: investor.bio
+        };
+      });
+
+      return exportableInvestors;
     }
 
   });
