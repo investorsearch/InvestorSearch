@@ -261,7 +261,7 @@ module.exports = function (grunt) {
              '<%= yeoman.dist %>/views/{,*/}*.jade'],
       css: ['<%= yeoman.dist %>/public/styles/{,*/}*.css'],
       options: {
-        assetsDirs: ['<%= yeoman.dist %>/public']
+        assetsDirs: ['<%= yeoman.dist %>/public/**/']
       }
     },
 
@@ -320,6 +320,14 @@ module.exports = function (grunt) {
         }]
       }
     },
+
+    ngAnnotate: {
+     dist: {
+       files: [{
+         src: '.tmp/concat/scripts/**/*.js'
+       }]
+     }
+   },
 
     // Replace Google CDN references
     cdnify: {
@@ -522,7 +530,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
-    'ngmin',
+    'ngAnnotate',
     'copy:dist',
     'cdnify',
     'cssmin',
