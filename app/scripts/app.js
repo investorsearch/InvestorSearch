@@ -12,10 +12,9 @@ angular.module('investorSearchApp', [
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
-      .when('/main', {
+      .when('/', {
         templateUrl: 'partials/main',
-        controller: 'SearchCtrl',
-        authenticate: true
+        controller: 'SearchCtrl'
       })
       .when('/login', {
         templateUrl: 'partials/login',
@@ -31,7 +30,7 @@ angular.module('investorSearchApp', [
         authenticate: true
       })
       .otherwise({
-        redirectTo: '/main'
+        redirectTo: '/'
       });
 
     $locationProvider.html5Mode(true);

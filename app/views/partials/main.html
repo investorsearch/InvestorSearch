@@ -72,7 +72,7 @@
     </div>
   </div>
 </div>
-<div>
+<!-- <div>
 My saved investors:
   <div class="investor-in-list" ng-repeat="investor in savedInvestors"><div ng-hide="investor.hidden === 1">
       <div class="image">
@@ -83,11 +83,8 @@ My saved investors:
         <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
         </span>
         <br />
-        <a href='#' ng-click='removeInvestorFromList(investor.id)'>Remove this user from my list</a>
+        <p class="deleteItem"><a ng-really-message="Are you sure you want to permanently delete this?" ng-really-click="removeInvestorFromList(investor.id)"><span class="glyphicon glyphicon-trash"></span></a><p>
       </div>
     </div>
-</div>
+</div> -->
 
-<div class="footer">
-  <p>Brought to you by DreamIt and Fullstack Academy</p>
-</div>
