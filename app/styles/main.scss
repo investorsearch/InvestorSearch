@@ -155,7 +155,7 @@ html{
   margin: 5px 0 0 0;
 }
 
-.searchArea {
+.searchArea, .settingsArea {
   color:#999;
   background-color:#FFF;
   padding: 20px;
@@ -174,11 +174,13 @@ a.anchor{
   visibility: hidden;
 }
 
-h1,h2,h3,h4,h5,p,input,a,button{
+h1,h2,h3,h4,h5,p,input,a,button, label{
   font-weight:300;
+  font-family: "Open Sans", sans-serif;
 }
 
-.btn{
+// Remove the rounded edges
+.btn, .form-control{
   border-radius:0;
 }
 
@@ -213,10 +215,22 @@ tags-input .autocomplete .suggestion-item em {
   .investor-row{
     margin-bottom:10px;
   }
+
+  .brand{
+    display:none;
+  }
+
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 640px) {
+  .brand{
+    display:inline-block;
+  }
 
 }
 
