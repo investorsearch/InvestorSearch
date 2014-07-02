@@ -1,6 +1,20 @@
-<div ng-include="'partials/navbar'"></div>
+<div ng-hide="currentUser" class="homepage">
+  <h2 class="text-center">Fundraising?</h2>
+  <br/>
+  <h3 class="text-center">Find investors interested in startups just like yours.</h3><br/>
 
-<div class="">
+  <a href="/login"><button ng-class="{active: isActive('/login')}" class="btn btn-success btn-lg btn-block">Login</button></a>
+  <br/>
+  <a href="/signup"><button ng-class="{active: isActive('/signup')}" class="btn btn-info btn-lg btn-block">Sign up</button></a>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
+</div>
+
+<div class="" ng-show="currentUser">
+<div ng-include="'partials/navbar'"></div>
     <p>Search For Investors:</p>
   <p>
   <form name="searchForm" class="form-group" role="form" ng-submit='search(searchForm)'>
