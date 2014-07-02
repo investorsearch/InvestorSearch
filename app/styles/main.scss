@@ -189,14 +189,19 @@ h1,h2,h3,h4,h5,p,input,a,button{
   font-weight:300;
 }
 
-.btn{
+.btn, .btn a{
   border-radius:0;
+  color:white;
 }
 
 // This is changing the font of the ng-tags-input stuff
 tags-input .tags .tag-item {
   font: 14px "Open Sans", sans-serif;
   font-weight:300;
+}
+
+tags-input .tags {
+  box-shadow: none;
 }
 
 tags-input .tags .input {
