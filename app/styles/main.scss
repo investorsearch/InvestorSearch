@@ -58,7 +58,10 @@ html{
     margin-bottom: 0;
     line-height: 40px;
     padding:10px 0 19px 50px;
-    color: #999;
+    a, a:hover {
+      color: #999;
+      text-decoration: none;
+    }
 }
 
 .nav > li {
