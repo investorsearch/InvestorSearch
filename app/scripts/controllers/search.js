@@ -6,6 +6,7 @@ angular.module('investorSearchApp')
     $scope.selectedCompanies = [];
     $scope.selectedMarkets = [];
     $scope.investors = [];
+    $scope.querySearch = '';
 
     List.show().then(function(list){
       $scope.savedInvestors = list.data;
@@ -45,6 +46,7 @@ angular.module('investorSearchApp')
         // remove spinner
         $(".spinner").addClass('ng-hide');
         $scope.scrollToAnchor('results');
+        console.log($scope.investors);
       });
     };
 

@@ -1,19 +1,3 @@
-<div ng-hide="currentUser" class="homepage">
-  <h2 class="text-center">Fundraising?</h2>
-  <br/>
-  <h3 class="text-center">Find investors interested in startups just like yours.</h3><br/>
-
-  <a href="/login"><button ng-class="{active: isActive('/login')}" class="btn btn-success btn-lg btn-block">Login</button></a>
-  <br/>
-  <a href="/signup"><button ng-class="{active: isActive('/signup')}" class="btn btn-info btn-lg btn-block">Sign up</button></a>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-
-</div>
-
-<div ng-show="currentUser">
 <div ng-include="'partials/navbar'"></div>
 <div class="searchArea">
   <a name="search" class="anchor"></a>
@@ -81,6 +65,5 @@
 
     </div>
   </div>
-</div>
 
 

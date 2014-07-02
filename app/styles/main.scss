@@ -190,9 +190,17 @@ h1,h2,h3,h4,h5,p,input,a,button, label{
   font-family: "Open Sans", sans-serif;
 }
 
-// Remove the rounded edges
-.btn, .form-control, .nav-pills{
+.btn, .btn a, .form-control, .nav-pills{
   border-radius:0;
+  color:white;
+}
+.glyphicon-remove {
+  border-radius:0;
+  color:#999;
+}
+
+.title {
+  padding-bottom: 10px;
 }
 
 .not-registered-text{
@@ -203,6 +211,10 @@ h1,h2,h3,h4,h5,p,input,a,button, label{
 tags-input .tags .tag-item {
   font: 14px "Open Sans", sans-serif;
   font-weight:300;
+}
+
+tags-input .tags {
+  box-shadow: none;
 }
 
 tags-input .tags .input {
