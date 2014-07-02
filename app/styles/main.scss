@@ -193,6 +193,14 @@ h1,h2,h3,h4,h5,p,input,a,button{
   border-radius:0;
   color:white;
 }
+.glyphicon-remove {
+  border-radius:0;
+  color:#999;
+}
+
+.title {
+  padding-bottom: 10px;
+}
 
 // This is changing the font of the ng-tags-input stuff
 tags-input .tags .tag-item {
