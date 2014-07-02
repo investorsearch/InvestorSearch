@@ -24,4 +24,8 @@ angular.module('investorSearchApp')
         $('.counter').removeClass('highlight');
       }, 500);
     }
+
+    $rootScope.goTo = function(location){
+      $location.path('/'+location)
+    }
   });
