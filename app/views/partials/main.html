@@ -67,8 +67,11 @@
           </span>
           <span>{{investor.bio}}</span><br />
           <span>{{showSearchReasons(investor.search_reason)}}</span><br />
-<!--           <span>AngelList Id: {{investor.al_id || investor.id}}</span> -->
-          <a href='#' ng-click='addInvestorToList(investor.id)'>Add this user to my list</a>
+          <div class='row'>
+            <a ng-show="investor.angellist_url" ng-href="{{investor.angellist_url}}" target="_blank"><button class='zocial angellist'>AngelList</button></a>
+            <a ng-show="investor.linkedin_url" ng-href="{{investor.linkedin_url}}" target="_blank"><button class='zocial linkedin'>LinkedIn</button></a>
+            <button class='btn' ng-click='addInvestorToList(investor.id)'><span class="glyphicon glyphicon-plus"></span>Add this user to my list</button>
+          </div>
         </div>
       </div>
 
