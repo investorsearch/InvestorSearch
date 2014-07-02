@@ -31,7 +31,7 @@
        </tags-input>
      </p>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary submitBtn">Submit</button>
     <button type="button" ng-click="clear()" class="btn btn-danger" ng-hide="investors.length < 1">Clear</button>
   </form>
 </p>
@@ -44,7 +44,6 @@
   <div class="row">
     <div class="spinner ng-hide">
       <span us-spinner></span>
-      <span>Hamster wheels are powering our engines. Please be patient.</span>
     </div>
    <!--  <form name="saveForm" class="form-group" role="form"  ng-submit='createList(saveForm)' ng-hide="investors.length < 1">
       <input type="text" class="form-control" ng-model="listName" placeholder="Title">
@@ -75,7 +74,7 @@
           <div class='row'>
             <a ng-show="investor.angellist_url" ng-href="{{investor.angellist_url}}" target="_blank"><button class='zocial angellist'>AngelList</button></a>
             <a ng-show="investor.linkedin_url" ng-href="{{investor.linkedin_url}}" target="_blank"><button class='zocial linkedin'>LinkedIn</button></a>
-            <button class='btn' ng-click='addInvestorToList(investor.id)'><span class="glyphicon glyphicon-plus"></span>Add this user to my list</button>
+            <button class='btn' ng-click='addInvestorToList(investor.id)'><span class="glyphicon glyphicon-plus"></span> Add this user to my list</button>
           </div>
         </div>
       </div>
