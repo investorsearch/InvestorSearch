@@ -1,7 +1,7 @@
 <div class="header" ng-controller="NavbarCtrl">
  <a href="/"><h3 class= "brand">InvestorSearch</h3></a>
  <ul class="nav nav-pills pull-right">
-   <li class="investorCount"><button class="counter btn btn-primary " ng-click="goTo(list)">My Investors: <span class="badge">{{savedInvestors.length}}</span></button></li></li>
+   <li class="investorCount"><button class="counter btn btn-primary " ng-click="goTo(list)">My Investors <span class="badge">{{savedInvestors.length}}</span></button></li></li>
    <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
        <a ng-href="{{item.link}}">{{item.title}}</a>
    </li>

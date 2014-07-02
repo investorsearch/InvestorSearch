@@ -165,7 +165,7 @@ a{
   margin: 5px 0 0 0;
 }
 
-.searchArea, .settingsArea {
+.searchArea, .settingsArea, .loginArea {
   color:#999;
   background-color:#FFF;
   padding: 20px;
@@ -191,8 +191,12 @@ h1,h2,h3,h4,h5,p,input,a,button, label{
 }
 
 // Remove the rounded edges
-.btn, .form-control{
+.btn, .form-control, .nav-pills{
   border-radius:0;
+}
+
+.not-registered-text{
+  color:#999;
 }
 
 // This is changing the font of the ng-tags-input stuff
