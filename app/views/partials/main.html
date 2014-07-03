@@ -39,7 +39,7 @@
           <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
           </span>
           <span>{{investor.bio}}</span><br />
-          <span>{{showSearchReasons(investor.search_reason)}}</span><br />
+          <span class="reason">{{showSearchReasons(investor.search_reason)}}</span><br />
           <div class='row'>
             <a ng-show="investor.angellist_url" ng-href="{{investor.angellist_url}}" target="_blank"><button class='zocial angellist'>AngelList</button></a>
             <a ng-show="investor.linkedin_url" ng-href="{{investor.linkedin_url}}" target="_blank"><button class='zocial linkedin'>LinkedIn</button></a>
