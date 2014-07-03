@@ -7,10 +7,10 @@
     <div ng-repeat='constraint in constraints' class='form-group'>
       <p>
        <tags-input ng-model="selectedCompanies" placeholder='Companies (i.e. Spotify, Songza)' display-property="name">
-          <auto-complete source="completeCompanies($query)"></auto-complete>
+          <auto-complete max-results-to-show="100" source="completeCompanies($query)"></auto-complete>
        </tags-input>
        <tags-input ng-model="selectedMarkets" placeholder='Markets (i.e. Ride Sharing, Taxis)' display-property="name">
-          <auto-complete source="completeMarkets($query)"></auto-complete>
+          <auto-complete max-results-to-show="100" source="completeMarkets($query)"></auto-complete>
        </tags-input>
      </p>
 
