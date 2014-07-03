@@ -145,4 +145,5 @@ angular.module('investorSearchApp')
 
      return returnedOutput;
   }
+
 });

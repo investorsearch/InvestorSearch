@@ -34,15 +34,17 @@
           <img ng-src="{{investor.image}}" />
         </div>
         <div class="information col-xs-12 col-sm-9 col-md-9 col-lg-9 col-xl-9">
-          <h3>{{investor.name}}</h3>
+          <h3>{{investor.name}}<span class="pull-right matches-text">Matches: {{investor.search_reason.length}}/{{selectedMarkets.length + selectedCompanies.length}} criteria</span></h3>
           <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
           </span>
           <span>{{investor.bio}}</span><br />
-          <span>{{showSearchReasons(investor.search_reason)}}</span><br />
+          <span>{{showSearchReasons(investor.search_reason)}}</span>
+          <br /><br />
+
           <div class='row pull-right'>
             <a ng-show="investor.angellist_url" ng-href="{{investor.angellist_url}}" target="_blank"><button class='zocial angellist'>AngelList</button></a>
             <a ng-show="investor.linkedin_url" ng-href="{{investor.linkedin_url}}" target="_blank"><button class='zocial linkedin'>LinkedIn</button></a>
-            <button class='zocial' ng-click='addInvestorToList(investor.id)'><span class="glyphicon glyphicon-plus"></span>Add to list</button>
+            <button class='zocial' ng-click='addInvestorToList(investor.id)'><span class="glyphicon glyphicon-plus"></span> Add to list</button>
           </div>
         </div>
       </div>
