@@ -35,7 +35,7 @@
           <div class='row'>
             <a ng-show="investor.angellist_url" ng-href="{{investor.angellist_url}}" target="_blank"><button class='zocial angellist'>AngelList</button></a>
             <a ng-show="investor.linkedin_url" ng-href="{{investor.linkedin_url}}" target="_blank"><button class='zocial linkedin'>LinkedIn</button></a>
-            <button class="btn deleteItem"><a ng-really-message="Are you sure you want to permanently remove this from your list?" ng-really-click="removeInvestorFromList(investor.id)"><span class="glyphicon glyphicon-trash"></span> Remove from list</button></a><p>
+            <button class="deleteItem zocial"><a ng-really-message="Are you sure you want to permanently remove this from your list?" ng-really-click="removeInvestorFromList(investor.id)"><span class="glyphicon glyphicon-trash"></span> Remove from list</button></a><p>
           </div>
         </div>
       </div>

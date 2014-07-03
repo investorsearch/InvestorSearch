@@ -174,7 +174,7 @@ a{
   color:purple;
 }
 
-.searchArea {
+.searchArea, .settingsArea, .loginArea {
   color:#999;
   background-color:#FFF;
   padding: 20px;
@@ -194,14 +194,19 @@ a.anchor{
   visibility: hidden;
 }
 
-h1,h2,h3,h4,h5,p,input,a,button{
+h1,h2,h3,h4,h5,p,input,a,button, label{
   font-weight:300;
+  font-family: "Open Sans", sans-serif;
+}
+
+.btn, .btn a, .nav-pills > li > a, .form-group{
+  border-radius:0;
 }
 
 .btn, .btn a{
-  border-radius:0;
   color:white;
 }
+
 .glyphicon-remove {
   border-radius:0;
   color:#999;
@@ -210,6 +215,9 @@ h1,h2,h3,h4,h5,p,input,a,button{
 .title {
   padding-bottom: 10px;
 }
+
+.not-registered-text{
+  color:#999;
 
 .clear{
   clear:both;
@@ -250,10 +258,22 @@ tags-input .autocomplete .suggestion-item em {
   .investor-row{
     margin-bottom:10px;
   }
+
+  .brand{
+    display:none;
+  }
+
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 640px) {
+  .brand{
+    display:inline-block;
+  }
 
 }
 

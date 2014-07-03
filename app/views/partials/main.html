@@ -1,21 +1,20 @@
 <div ng-include="'partials/navbar'"></div>
 <div class="searchArea">
     <h1>Looking for Investors?</h1>
-    <h3>Input any companies or markets you're interested in below.</h3>
-    <br />
+    <h3>Enter companies and markets similar to yours below.</h3>
   <p>
-  <form name="searchForm" class="form-group" role="form" ng-submit='search(searchForm)'>
+  <form name="searchForm" class="form" role="form" ng-submit='search(searchForm)'>
     <div ng-repeat='constraint in constraints' class='form-group'>
       <p>
-       <tags-input ng-model="selectedCompanies" placeholder='Search for Companies'display-property="name">
+       <tags-input ng-model="selectedCompanies" placeholder='Companies (i.e. Spotify, Songza)' display-property="name">
           <auto-complete source="completeCompanies($query)"></auto-complete>
        </tags-input>
-       <tags-input ng-model="selectedMarkets" placeholder='Search for Markets' display-property="name">
+       <tags-input ng-model="selectedMarkets" placeholder='Markets (i.e. Ride Sharing, Taxis)' display-property="name">
           <auto-complete source="completeMarkets($query)"></auto-complete>
        </tags-input>
      </p>
 
-    <button type="submit" class="btn btn-primary submitBtn">Submit</button>
+    <button type="submit" class="btn btn-primary btn-block">Search</button>
     <button type="button" ng-click="clear()" class="btn btn-danger" ng-hide="investors.length < 1">Clear</button>
   </form>
 </p>
@@ -39,11 +38,11 @@
           <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
           </span>
           <span>{{investor.bio}}</span><br />
-          <span class="reason">{{showSearchReasons(investor.search_reason)}}</span><br />
-          <div class='row'>
+          <span>{{showSearchReasons(investor.search_reason)}}</span><br />
+          <div class='row pull-right'>
             <a ng-show="investor.angellist_url" ng-href="{{investor.angellist_url}}" target="_blank"><button class='zocial angellist'>AngelList</button></a>
             <a ng-show="investor.linkedin_url" ng-href="{{investor.linkedin_url}}" target="_blank"><button class='zocial linkedin'>LinkedIn</button></a>
-            <button class='btn' ng-click='addInvestorToList(investor.id)'><span class="glyphicon glyphicon-plus"></span> Add this user to my list</button>
+            <button class='zocial' ng-click='addInvestorToList(investor.id)'><span class="glyphicon glyphicon-plus"></span>Add to list</button>
           </div>
         </div>
       </div>
