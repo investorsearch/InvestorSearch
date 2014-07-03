@@ -190,10 +190,14 @@ h1,h2,h3,h4,h5,p,input,a,button, label{
   font-family: "Open Sans", sans-serif;
 }
 
-.btn, .btn a, .form-control, .nav-pills{
+.btn, .btn a, .nav-pills > li > a, .form-group{
   border-radius:0;
+}
+
+.btn, .btn a{
   color:white;
 }
+
 .glyphicon-remove {
   border-radius:0;
   color:#999;
