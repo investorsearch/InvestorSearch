@@ -232,7 +232,8 @@ tags-input .tags .tag-item {
 }
 
 tags-input .autocomplete .suggestion-list {
-  overflow:scroll;
+  height: 300px;
+  overflow: scroll;
 }
 
 tags-input .tags {
