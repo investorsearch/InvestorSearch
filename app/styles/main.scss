@@ -220,6 +220,11 @@ h1,h2,h3,h4,h5,p,input,a,button, label{
   clear:both;
 }
 
+.matches-text{
+  font-size: 12px;
+  margin-top: 4px;
+}
+
 /*/ This is changing the font of the ng-tags-input stuff */
 tags-input .tags .tag-item {
   font: 14px "Open Sans", sans-serif;
