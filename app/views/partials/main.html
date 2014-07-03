@@ -7,7 +7,7 @@
     <div ng-repeat='constraint in constraints' class='form-group'>
       <p>
        <tags-input ng-model="selectedCompanies" placeholder='Companies (i.e. Spotify, Songza)' display-property="name">
-          <auto-complete source="completeCompanies($query)"></auto-complete>
+          <auto-complete max-results-to-show="100" source="completeCompanies($query)"></auto-complete>
        </tags-input>
        <tags-input ng-model="selectedMarkets" placeholder='Markets (i.e. Ride Sharing, Taxis)' display-property="name">
           <auto-complete source="completeMarkets($query)"></auto-complete>
@@ -15,7 +15,7 @@
      </p>
 
     <button type="submit" class="btn btn-primary btn-block">Search</button>
-    <button type="button" ng-click="clear()" class="btn btn-danger" ng-hide="investors.length < 1">Clear</button>
+    <button type="button" ng-click="clear()" class="btn btn-danger btn-block" ng-hide="investors.length < 1">Clear</button>
   </form>
 </p>
 </div>
@@ -31,18 +31,20 @@
     <div class="investor-in-list" ng-repeat="investor in investors| index"><div ng-hide="investor.hidden === 1">
       <div class="row investor-row">
         <div class="investor-image col-sm-3 col-md-3 col-lg-3 col-xl-3">
-          <img ng-src="{{investor.image}}" />
+          <img ng-src="{{investor.image || '/images/placeholder.png'}}" />
         </div>
         <div class="information col-xs-12 col-sm-9 col-md-9 col-lg-9 col-xl-9">
-          <h3>{{investor.name}}</h3>
+          <h3>{{investor.name}}<span class="pull-right matches-text">Matches: {{investor.search_reason.length}}/{{selectedMarkets.length + selectedCompanies.length}} criteria</span></h3>
           <span ng-repeat="location in investor.locations">{{location.display_name}}<span ng-hide="$index === investor.locations.length-1">,</span>
           </span>
           <span>{{investor.bio}}</span><br />
-          <span>{{showSearchReasons(investor.search_reason)}}</span><br />
+          <span>{{showSearchReasons(investor.search_reason)}}</span>
+          <br /><br />
+
           <div class='row pull-right'>
             <a ng-show="investor.angellist_url" ng-href="{{investor.angellist_url}}" target="_blank"><button class='zocial angellist'>AngelList</button></a>
             <a ng-show="investor.linkedin_url" ng-href="{{investor.linkedin_url}}" target="_blank"><button class='zocial linkedin'>LinkedIn</button></a>
-            <button class='zocial' ng-click='addInvestorToList(investor.id)'><span class="glyphicon glyphicon-plus"></span>Add to list</button>
+            <button class='zocial' ng-click='addInvestorToList(investor.id)'><span class="glyphicon glyphicon-plus"></span> Add to list</button>
           </div>
         </div>
       </div>

@@ -115,6 +115,7 @@ html{
   margin-bottom: 10px;
 }
 
+
 .investor-in-list{
   color:#999;
   background-color:#FFF;
@@ -180,11 +181,6 @@ a{
   padding: 20px;
   margin:50px 0;
   font-weight:300;
-  // border: 1px solid #111;
-  // border-radius: 25px;
-  // padding: 25px;
-  // margin:25px auto;
-  // box-shadow: 0px 25px 100px #000;
 }
 
 a.anchor{
@@ -224,10 +220,20 @@ h1,h2,h3,h4,h5,p,input,a,button, label{
   clear:both;
 }
 
-/*// This is changing the font of the ng-tags-input stuff*/
+.matches-text{
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/*/ This is changing the font of the ng-tags-input stuff */
 tags-input .tags .tag-item {
   font: 14px "Open Sans", sans-serif;
   font-weight:300;
+}
+
+tags-input .autocomplete .suggestion-list {
+  max-height: 300px;
+  overflow: scroll;
 }
 
 tags-input .tags {
@@ -248,7 +254,7 @@ tags-input .autocomplete .suggestion-item em {
   font: normal bold 16px "Open Sans", sans-serif;
   font-weight:300;
 }
-/*// End editing ng-tags-input stuff*/
+/* End editing ng-tags-input stuff */
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {

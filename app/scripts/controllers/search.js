@@ -56,15 +56,16 @@ angular.module('investorSearchApp')
       return deferred.promise;
     }
 
-    $scope.completeMarkets = function(value) {
-     var deferred = $q.defer();
+      $scope.completeMarkets = function(value) {
+      var deferred = $q.defer();
       var returnedMarketNames = [];
       Autocomplete.market(value).then(function(markets){
         deferred.resolve(markets);
       });
       return deferred.promise;
-
     }
+
+
 
     $scope.clear = function(){
       $scope.investors = [];
@@ -144,4 +145,5 @@ angular.module('investorSearchApp')
 
      return returnedOutput;
   }
+
 });
