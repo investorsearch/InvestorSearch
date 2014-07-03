@@ -15,7 +15,7 @@
      </p>
 
     <button type="submit" class="btn btn-primary btn-block">Search</button>
-    <button type="button" ng-click="clear()" class="btn btn-danger btn-block" ng-hide="investors.length < 1">Clear</button>
+    <button type="button" ng-click="clear()" class="btn btn-danger btn-block" ng-hide="investors.length < 1">Clear Results</button>
   </form>
 </p>
 </div>
@@ -31,7 +31,7 @@
     <div class="investor-in-list" ng-repeat="investor in investors| index"><div ng-hide="investor.hidden === 1">
       <div class="row investor-row">
         <div class="investor-image col-sm-3 col-md-3 col-lg-3 col-xl-3">
-          <img ng-src="{{investor.image}}" />
+          <img ng-src="{{investor.image || '/images/placeholder.png'}}" />
         </div>
         <div class="information col-xs-12 col-sm-9 col-md-9 col-lg-9 col-xl-9">
           <h3>{{investor.name}}<span class="pull-right matches-text">Matches: {{investor.search_reason.length}}/{{selectedMarkets.length + selectedCompanies.length}} criteria</span></h3>
