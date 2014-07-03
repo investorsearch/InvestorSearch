@@ -95,7 +95,14 @@ angular.module('investorSearchApp')
     };
 
     $scope.removeInvestorFromList = function(id){
+      console.log(id);
       List.removeInvestor(id).then(function(investor){
+        console.log(investor)
+        for(var i = 0; i < $scope.savedInvestors.length; i++){
+          if($scope.savedInvestors[i].id === id){
+            $scope.savedInvestors.splice(i, 1);
+          }
+        }
       });
     };
 
