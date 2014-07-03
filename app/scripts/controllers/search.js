@@ -12,17 +12,13 @@ angular.module('investorSearchApp')
       $scope.savedInvestors = list.data;
     });
 
-    $scope.$watchCollection('investors', function(newer, older){
-    if (newer.length > 0){
-      $('.submitBtn').attr("disabled", "disabled");
-      console.log("disabled")
-    } else {
-      $('.submitBtn').removeAttr("disabled");
-      console.log("not disabled")
-    }
-
-
-  });
+    // $scope.$watchCollection('investors', function(newer, older){
+    // if (newer.length > 0){
+    //   $('.submitBtn').attr("disabled", "disabled");
+    // } else {
+    //   $('.submitBtn').removeAttr("disabled");
+    // }
+ // });
     $rootScope.scrollToAnchor = function(aid){
       var aTag = $("a[name='"+ aid +"']");
       console.log('scrolling')
@@ -44,6 +40,7 @@ angular.module('investorSearchApp')
       Search.getInvestors(constraints).then(function(investorsFromPromise) {
         $scope.investors = investorsFromPromise.data;
         // remove spinner
+        $('.submitBtn').removeAttr("disabled");
         $(".spinner").addClass('ng-hide');
         $scope.scrollToAnchor('results');
         console.log($scope.investors);
