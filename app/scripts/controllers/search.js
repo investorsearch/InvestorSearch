@@ -23,7 +23,7 @@ angular.module('investorSearchApp')
 
 
   });
-    $scope.scrollToAnchor = function(aid){
+    $rootScope.scrollToAnchor = function(aid){
       var aTag = $("a[name='"+ aid +"']");
       console.log('scrolling')
       console.log(aTag)

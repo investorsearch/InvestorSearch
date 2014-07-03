@@ -27,6 +27,8 @@
     <!-- endbuild -->
   </head>
   <body ng-app="investorSearchApp">
+    <a name="search" class="anchor"></a>
+
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -88,5 +90,10 @@
         <script src="scripts/directives/ng-really.js"></script>
         <script src="scripts/controllers/hider.js"></script>
         <!-- endbuild -->
+
+  <div class="footer" ng-controller='HiderCtrl'>
+      <a ng-click='scrollToAnchor("search")'><span class='pull-right'>Back to the top  <span class="glyphicon glyphicon-chevron-up"></span></span>
+      </a>
+  </div>
 </body>
 </html>

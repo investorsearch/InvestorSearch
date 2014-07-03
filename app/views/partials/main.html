@@ -1,6 +1,5 @@
 <div ng-include="'partials/navbar'"></div>
 <div class="searchArea">
-  <a name="search" class="anchor"></a>
     <h1>Looking for Investors?</h1>
     <h3>Enter companies and markets similar to yours below.</h3>
   <p>
@@ -23,26 +22,11 @@
 </div>
 
 <div class="container">
-<!-- TODO: ADD THIS BUTTON TO THE SHOPPING CART -->
-<!--   <button type="button" ng-csv="convertToCsvFormat(investors)" csv-header="['Name', 'Type', 'LinkedIn', 'Location', 'About']" filename="investors.csv">Export Investors to CSV</button> -->
+
   <div class="row">
     <div class="spinner ng-hide">
       <span us-spinner></span>
     </div>
-   <!--  <form name="saveForm" class="form-group" role="form"  ng-submit='createList(saveForm)' ng-hide="investors.length < 1">
-      <input type="text" class="form-control" ng-model="listName" placeholder="Title">
-      <button type="submit" class="btn btn-primary" ng-disabled="disabled">
-        Save List
-      </button>
-    </div>
-
-    <div>
-        <ul >
-          <li ng-repeat="list in lists"><a href="#" ng-click="showList(list.id)">{{list.list_name}}</a></li>
-        </ul>
-      </div>
-
-    </form> -->
   <a name="results" class="anchor"></a>
     <div class="investor-in-list" ng-repeat="investor in investors| index"><div ng-hide="investor.hidden === 1">
       <div class="row investor-row">

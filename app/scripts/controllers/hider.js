@@ -12,13 +12,23 @@ angular.module('investorSearchApp')
         });
     };
 
+    if($(window).scrollTop() < 400){
+        console.log("true");
+        $('.footer').hide();
+      }
+
 
     $(window).scroll(function(){
-       $('.header').slideUp("fast");
+       $('.footer').slideUp("fast");
     });
 
     $(window).scrollStopped(function(){
-      $('.header').show("fast");
+      $('.footer').slideDown("fast");
+
+      if($(window).scrollTop() < 700){
+        console.log("true");
+        $('.footer').hide();
+      }
 });
 
   });
