@@ -227,7 +227,7 @@ tags-input .tags .tag-item {
 }
 
 tags-input .autocomplete .suggestion-list {
-  height: 300px;
+  max-height: 300px;
   overflow: scroll;
 }
 
