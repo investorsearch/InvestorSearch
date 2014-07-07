@@ -65,7 +65,7 @@ html{
 }
 
 .nav > li {
-  padding:10px 10px 0 0;
+  padding:10px 0 0 0;
 }
 
 .footer {
@@ -202,7 +202,7 @@ h1,h2,h3,h4,h5,p,input,a,button, label{
   font-family: "Open Sans", sans-serif;
 }
 
-.btn, .btn a, .nav-pills > li > a, .form-group{
+.btn, .btn a, .nav-pills > li > a, .form-group, .form-control{
   border-radius:0;
 }
 
@@ -234,10 +234,6 @@ h1,h2,h3,h4,h5,p,input,a,button, label{
 .matches-text{
   font-size: 12px;
   margin-top: 4px;
-}
-
-.zocial{
-  width:115px;
 }
 
 /*/ This is changing the font of the ng-tags-input stuff */
@@ -284,12 +280,25 @@ tags-input .autocomplete .suggestion-item em {
   .brand{
     display:none;
   }
+  .button-container{
+    font-size:10px;
+  }
+
+  .export-button{
+    margin-top:15px;
+    margin-bottom:10px;
+    clear:both;
+    width:100%;
+  }
 
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
-
+  .button-container button{
+    font-size:14px;
+    width:115px;
+  }
 }
 
 @media only screen and (min-width : 640px) {
@@ -301,8 +310,9 @@ tags-input .autocomplete .suggestion-item em {
 
 /* Responsive: Portrait tablets and up (small) */
 @media screen and (min-width: 768px) {
-  .container {
+  .container, .searchArea, .investor-in-list {
       max-width: 730px;
+      width:730px;
   }
 
     /* Remove the padding we set earlier */
@@ -324,6 +334,10 @@ tags-input .autocomplete .suggestion-item em {
     .investor-image{
       display:inline-block;
       margin-right:0px;
+    }
+
+    .export-button{
+      width:60%;
     }
 }
 
