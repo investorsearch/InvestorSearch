@@ -22,8 +22,6 @@ angular.module('investorSearchApp')
  // });
     $rootScope.scrollToAnchor = function(aid){
       var aTag = $("a[name='"+ aid +"']");
-      console.log('scrolling')
-      console.log(aTag)
       $('html,body').animate({scrollTop: aTag.offset().top},1000);
     }
 
@@ -99,10 +97,12 @@ angular.module('investorSearchApp')
     };
 
     $scope.removeInvestorFromList = function(id){
+      console.log('remove ' + id)
       List.removeInvestor(id).then(function(investor){
-        for(var i = 0; i < $scope.investors.length; i++){
-          if($scope.investors[i].id === id){
-            $scope.investors.splice(i, 1);
+        console.log('here')
+        for(var i = 0; i < $scope.savedInvestors.length; i++){
+          if($scope.savedInvestors[i].id === id){
+            $scope.savedInvestors.splice(i, 1);
             $rootScope.highlight();
           }
         }
