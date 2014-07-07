@@ -14,6 +14,7 @@ Main Technologies Used
 * Angular
 * Express
 * Bluebird
+* AngelList API
 
 Screenshots
 ----
@@ -21,11 +22,12 @@ Screenshots
 
 Challenges
 ----
-* Coming soon...
+* Using the AngelList API. When an API call returned a set of results that was greater than 50, the results were paginated. We created a recursive function that wrapped the results for each individual page in a promise (using the Bluebird library). After the promise resolved, we would loop through the next page, until we reached the final page.
 
 
 Future improvements
 ----
-* Coming soon...
+* Adding the ability for a single user to create multiple lists.
+* Adding the ability for a user to e-mail 
 
 
