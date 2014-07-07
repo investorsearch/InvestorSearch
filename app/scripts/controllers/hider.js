@@ -13,7 +13,6 @@ angular.module('investorSearchApp')
     };
 
     if($(window).scrollTop() < 400){
-        console.log("true");
         $('.footer').hide();
       }
 

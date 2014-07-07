@@ -6,10 +6,10 @@
   <form name="searchForm" class="form" role="form" ng-submit='search(searchForm)'>
     <div ng-repeat='constraint in constraints' class='form-group'>
       <p>
-       <tags-input ng-model="selectedCompanies" placeholder='Companies (i.e. Spotify, Songza)' display-property="name">
+       <tags-input ng-model="selectedCompanies" add-on-enter="false" add-on-space="false" add-on-comma="false" add-on-blur="false" placeholder='Companies (i.e. Spotify, Songza)' display-property="name">
           <auto-complete max-results-to-show="100" source="completeCompanies($query)"></auto-complete>
        </tags-input>
-       <tags-input ng-model="selectedMarkets" placeholder='Markets (i.e. Ride Sharing, Taxis)' display-property="name">
+       <tags-input ng-model="selectedMarkets" add-on-enter="false" add-on-space="false" add-on-comma="false" add-on-blur="false" placeholder='Markets (i.e. Ride Sharing, Taxis)' display-property="name">
           <auto-complete source="completeMarkets($query)"></auto-complete>
        </tags-input>
      </p>
@@ -17,6 +17,9 @@
     <button type="submit" class="btn btn-primary btn-block">Search</button>
     <button type="button" ng-click="clear()" class="btn btn-danger btn-block" ng-hide="investors.length < 1">Clear Results</button>
   </form>
+  <p class="message">
+    {{message}}
+  </p>
 </p>
 </div>
 </div>
