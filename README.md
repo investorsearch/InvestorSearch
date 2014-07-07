@@ -28,6 +28,6 @@ Challenges
 Future improvements
 ----
 * Adding the ability for a single user to create multiple lists.
-* Adding the ability for a user to e-mail 
+* Adding the ability for a user to e-mail out their list.
 
 
