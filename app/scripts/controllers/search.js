@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('investorSearchApp')
-  .controller('SearchCtrl', function ($scope, $q, $rootScope, Search, Autocomplete, List) {
+  .controller('SearchCtrl', function ($scope, $q, $rootScope, Search, Autocomplete, List, $timeout) {
     $scope.constraints = [{text: ''}];
     $scope.selectedCompanies = [];
     $scope.selectedMarkets = [];
@@ -36,17 +36,19 @@ angular.module('investorSearchApp')
 
       // call search service here with constraints array
       Search.getInvestors(constraints).then(function(investorsFromPromise) {
-        if(investorsFromPromise.data.length === 0){
-          $scope.message = "No results have returned from your search critera. Please try a new search.";
-        } else {
-          $scope.message = "";
-        }
-        $scope.investors = investorsFromPromise.data;
+
         // remove spinner
-        $('.submitBtn').removeAttr("disabled");
-        $(".spinner").addClass('ng-hide');
-        $scope.scrollToAnchor('results');
-        console.log($scope.investors);
+        $timeout(function() {
+          if(investorsFromPromise.data.length === 0){
+            $scope.message = "No results have returned from your search critera. Please try a new search.";
+            } else {
+              $scope.message = "";
+            }
+          $('.submitBtn').removeAttr("disabled");
+          $scope.investors = investorsFromPromise.data;
+          $(".spinner").addClass('ng-hide');
+          $scope.scrollToAnchor('results');
+        }, 3000);
       });
     };
 

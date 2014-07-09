@@ -27,9 +27,33 @@
 <div class="container">
 
   <div class="row">
-    <div class="spinner ng-hide">
-      <span us-spinner></span>
+    <div id="fadingBarsG" class="spinner ng-hide">
+      <div id="fadingBarsG_1" class="fadingBarsG">
+      </div>
+      <div id="fadingBarsG_2" class="fadingBarsG">
+      </div>
+      <div id="fadingBarsG_3" class="fadingBarsG">
+      </div>
+      <div id="fadingBarsG_4" class="fadingBarsG">
+      </div>
+      <div id="fadingBarsG_5" class="fadingBarsG">
+      </div>
+      <div id="fadingBarsG_6" class="fadingBarsG">
+      </div>
+      <div id="fadingBarsG_7" class="fadingBarsG">
+      </div>
+      <div id="fadingBarsG_8" class="fadingBarsG">
     </div>
+    <br>
+    <br>
+
+  </div>
+
+  <p class="spinner ng-hide" id="wait-message">Searching 30,290 investors to find your best matches...</p>
+
+  <!--   <div class="spinner ng-hide">
+      <span us-spinner></span>
+    </div> -->
   <a name="results" class="anchor"></a>
     <div class="investor-in-list" ng-repeat="investor in investors| index"><div ng-hide="investor.hidden === 1">
       <div class="row investor-row">
