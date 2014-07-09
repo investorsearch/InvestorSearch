@@ -7,7 +7,6 @@ angular.module('investorSearchApp')
     $scope.selectedMarkets = [];
     $scope.investors = [];
     $scope.querySearch = '';
-    $scope.message = '';
 
     List.show().then(function(list){
       $scope.savedInvestors = list.data;
@@ -38,7 +37,9 @@ angular.module('investorSearchApp')
       // call search service here with constraints array
       Search.getInvestors(constraints).then(function(investorsFromPromise) {
         if(investorsFromPromise.data.length === 0){
-          $scope.message = "No results have returned from your search critera. Please try a new search."
+          $scope.message = "No results have returned from your search critera. Please try a new search.";
+        } else {
+          $scope.message = "";
         }
         $scope.investors = investorsFromPromise.data;
         // remove spinner
